@@ -357,4 +357,4 @@ for rid, item in source.items():
     if item.get('text', '').strip().lower() in extra:
         data.setdefault('resources', {})[str(int(rid, 16))] = extra[item['text'].strip().lower()]
 locale_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-print('Patched rendered-text fallback, case-insensitive translation, live layout theme/localization refresh, border-free scoped background theming, direct QQ deep link, and zh-CN toolbar terms.')
+print('Patched rendered-text fallback, case-insensitive translation, live layout refresh, bordered global surfaces, direct QQ deep link, and zh-CN toolbar terms.')

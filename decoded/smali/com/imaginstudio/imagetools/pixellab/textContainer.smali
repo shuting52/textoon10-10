@@ -2532,6 +2532,7 @@
 .end method
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
+    invoke-static {p0, p1}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->updateCanvasLongPress(Lcom/imaginstudio/imagetools/pixellab/textContainer;Landroid/view/MotionEvent;)V
     invoke-static {p0, p1}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->handlePinchTouch(Lcom/imaginstudio/imagetools/pixellab/textContainer;Landroid/view/MotionEvent;)Z
     move-result v0
     if-eqz v0, :plus_continue_touch
@@ -2548,9 +2549,11 @@
     const/4 v3, 0x0
     .line 125
     const/4 v3, 0x1
+    move-object v3, p1
     invoke-direct {p0, p1}, Lcom/imaginstudio/imagetools/pixellab/textContainer;->passEventToAll(Landroid/view/MotionEvent;)I
     move-result p1
     iput p1, p0, Lcom/imaginstudio/imagetools/pixellab/textContainer;->touchDownId:I
+    invoke-static {p0, p1, v3}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->scheduleCanvasLongPress(Lcom/imaginstudio/imagetools/pixellab/textContainer;ILandroid/view/MotionEvent;)V
     goto :goto_2
     const/4 v3, 0x2
     .line 126

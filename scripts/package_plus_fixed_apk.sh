@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT=/workspace/pixellabplus_custom
-BASE=/workspace/PixelLabPlus_1.9.5_plus_enhanced.apk
+BASE=/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk
 DEX=$ROOT/build/final_fixed/classes.dex
 LOCALES=$ROOT/locale_assets/pixellab_locales
 STAGE=$ROOT/build/final_fixed/package
 UNSIGNED=$STAGE/PixelLabPlus_1.9.5_plus_fixed_unsigned.apk
 ALIGNED=$STAGE/PixelLabPlus_1.9.5_plus_fixed_aligned.apk
-OUTPUT=/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk
+OUTPUT=/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk
 BUILD_TOOLS=/home/ubuntu/Android/Sdk/build-tools/37.0.0
 KEYSTORE=/home/ubuntu/.android/debug.keystore
 
@@ -17,6 +17,7 @@ KEYSTORE=/home/ubuntu/.android/debug.keystore
 LOCALE_COUNT=$(find "$LOCALES" -maxdepth 1 -type f -name '*.json' | wc -l)
 [ "$LOCALE_COUNT" -eq 17 ] || { echo "Expected 17 locale catalogs, found $LOCALE_COUNT" >&2; exit 1; }
 python3 "$ROOT/scripts/patch_global_language_theme_qq.py"
+python3 "$ROOT/scripts/patch_theme_longpress.py"
 mkdir -p "$(dirname "$DEX")"
 smali assemble -a 23 "$ROOT/decoded/smali" -o "$DEX"
 [ -s "$DEX" ] || { echo "Rebuilt DEX is empty: $DEX" >&2; exit 1; }
@@ -56,6 +57,10 @@ with zipfile.ZipFile(apk) as archive:
 expected = open(dex, 'rb').read()
 assert actual == expected, 'packaged classes.dex differs from assembled DEX'
 assert b'PlusEnhancements$LocaleWatcher' in actual, 'live localization watcher missing from DEX'
+assert b'PlusEnhancements$CanvasLongPressAction' in actual, 'canvas long-press handler missing from DEX'
+assert b'PlusEnhancements$DeleteTextAction' in actual, 'undo-aware text deletion action missing from DEX'
+assert b'scheduleCanvasLongPress' in actual, 'canvas long-press scheduling hook missing from DEX'
+assert b'styleWidget' in actual, 'global theme widget styling missing from DEX'
 with zipfile.ZipFile(apk) as archive:
     locales = [n for n in archive.namelist() if n.startswith('assets/pixellab_locales/') and n.endswith('.json')]
     assert len(locales) == 17, f'expected 17 offline locale catalogs, found {len(locales)}'

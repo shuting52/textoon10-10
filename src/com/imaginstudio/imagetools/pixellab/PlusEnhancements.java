@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,16 +18,20 @@ import android.os.Build;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +55,7 @@ public final class PlusEnhancements {
     };
     private static final Map<textContainer, Float> PINCH_DISTANCE = new WeakHashMap<textContainer, Float>();
     private static final Set<textContainer> PINCH_ACTIVE = java.util.Collections.newSetFromMap(new WeakHashMap<textContainer, Boolean>());
+    private static final Map<textContainer, CanvasLongPressAction> CANVAS_LONG_PRESS = java.util.Collections.synchronizedMap(new WeakHashMap<textContainer, CanvasLongPressAction>());
     private static final Map<View, StyleSnapshot> ORIGINAL_STYLES = java.util.Collections.synchronizedMap(new WeakHashMap<View, StyleSnapshot>());
 
     private PlusEnhancements() {}
@@ -82,7 +88,10 @@ public final class PlusEnhancements {
     }
 
     public static void onQuotesResume(Activity activity) {
-        try { applyTheme(activity); } catch (Throwable ignored) { }
+        try {
+            applyTheme(activity);
+            watchLocaleTree(activity);
+        } catch (Throwable ignored) { }
     }
 
     /** Reapply the selected palette after Android adds or replaces editor views. */
@@ -178,29 +187,124 @@ public final class PlusEnhancements {
         } catch (Throwable ignored) { }
     }
 
+    public static void updateCanvasLongPress(textContainer container, MotionEvent event) {
+        if (container == null || event == null) return;
+        CanvasLongPressAction action = CANVAS_LONG_PRESS.get(container);
+        if (action == null) return;
+        if (event.getActionMasked() != MotionEvent.ACTION_MOVE) {
+            cancelCanvasLongPress(container);
+            return;
+        }
+        int slop = ViewConfiguration.get(container.getContext()).getScaledTouchSlop();
+        if (action.movedBeyondSlop(event, slop)) cancelCanvasLongPress(container);
+    }
+
+    public static void scheduleCanvasLongPress(textContainer container, int childIndex, MotionEvent down) {
+        cancelCanvasLongPress(container);
+        if (container == null || down == null || childIndex < 0) return;
+        View child = container.getChildAt(childIndex);
+        if (!(child instanceof TextComponent) || container.getSelectedComponent() != child) return;
+        CanvasLongPressAction action = new CanvasLongPressAction(container, (TextComponent) child, down.getX(), down.getY());
+        CANVAS_LONG_PRESS.put(container, action);
+        container.postDelayed(action, ViewConfiguration.getLongPressTimeout());
+    }
+
+    private static void cancelCanvasLongPress(textContainer container) {
+        if (container == null) return;
+        CanvasLongPressAction action = CANVAS_LONG_PRESS.remove(container);
+        if (action != null) container.removeCallbacks(action);
+    }
+
+    public static void onCanvasLongPressFired(textContainer container, TextComponent target, Runnable pending) {
+        if (container == null || target == null || CANVAS_LONG_PRESS.get(container) != pending) return;
+        CANVAS_LONG_PRESS.remove(container);
+        if (container.indexOfChild(target) < 0 || container.getSelectedComponent() != target) return;
+        AlertDialog dialog = new AlertDialog.Builder(container.getContext())
+            .setTitle("文字对象")
+            .setPositiveButton("删除", new DeleteTextAction(container, target))
+            .setNegativeButton("取消", null)
+            .create();
+        dialog.show();
+        if (container.getContext() instanceof Activity) {
+            try { applyDialogTheme((Activity) container.getContext(), dialog); } catch (Throwable ignored) { }
+        }
+    }
+
+    private static void applyDialogTheme(Activity activity, Dialog dialog) {
+        if (activity == null || dialog == null) return;
+        int index = activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getInt(THEME_KEY, 0);
+        if (index <= 0 || index >= THEME_NAMES.length) return;
+        Window window = dialog.getWindow();
+        if (window == null) return;
+        View decor = window.getDecorView();
+        localizeTree(activity, decor);
+        styleTree(activity, decor, Palette.forIndex(index), index);
+    }
+
+    private static void styleWidget(View view, Palette p) {
+        if (view == null || p == null || Build.VERSION.SDK_INT < 21) return;
+        ColorStateList accent = ColorStateList.valueOf(p.accent);
+        if (view instanceof EditText) ((EditText) view).setHintTextColor(p.foreground);
+        if (view instanceof CompoundButton) ((CompoundButton) view).setButtonTintList(accent);
+        if (view instanceof SeekBar) ((SeekBar) view).setThumbTintList(accent);
+        if (view instanceof ProgressBar) {
+            ProgressBar bar = (ProgressBar) view;
+            bar.setProgressTintList(accent);
+            bar.setProgressBackgroundTintList(ColorStateList.valueOf(p.border));
+            bar.setIndeterminateTintList(accent);
+        }
+    }
+
+    private static final class CanvasLongPressAction implements Runnable {
+        final textContainer container;
+        final TextComponent target;
+        final float startX, startY;
+        CanvasLongPressAction(textContainer container, TextComponent target, float startX, float startY) {
+            this.container = container; this.target = target; this.startX = startX; this.startY = startY;
+        }
+        boolean movedBeyondSlop(MotionEvent event, int slop) {
+            return Math.abs(event.getX() - startX) > slop || Math.abs(event.getY() - startY) > slop;
+        }
+        @Override public void run() { onCanvasLongPressFired(container, target, this); }
+    }
+
+    private static final class DeleteTextAction implements DialogInterface.OnClickListener {
+        final textContainer container;
+        final TextComponent target;
+        DeleteTextAction(textContainer container, TextComponent target) { this.container = container; this.target = target; }
+        @Override public void onClick(DialogInterface dialog, int which) {
+            if (which == DialogInterface.BUTTON_POSITIVE && container.indexOfChild(target) >= 0
+                    && container.getSelectedComponent() == target) container.removeCurrentObject();
+        }
+    }
+
     private static void showThemeMediaMenu(final MainActivity activity) {
         final String[] actions = {"选择全局主题", "从本地导入图片"};
-        new AlertDialog.Builder(activity)
+        AlertDialog dialog = new AlertDialog.Builder(activity)
             .setTitle("全局外观与素材")
-            .setItems(actions, (dialog, which) -> {
+            .setItems(actions, (clickedDialog, which) -> {
                 if (which == 0) showThemePicker(activity);
                 else if (which == 1) openImagePicker(activity);
             })
             .setNegativeButton("关闭", null)
-            .show();
+            .create();
+        dialog.show();
+        applyDialogTheme(activity, dialog);
     }
 
     private static void showThemePicker(final MainActivity activity) {
         int selected = activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getInt(THEME_KEY, 0);
-        new AlertDialog.Builder(activity)
+        AlertDialog dialog = new AlertDialog.Builder(activity)
             .setTitle("全局主题（背景 / 图标 / 文字 / 组件）")
-            .setSingleChoiceItems(THEME_NAMES, selected, (dialog, which) -> {
+            .setSingleChoiceItems(THEME_NAMES, selected, (choiceDialog, which) -> {
                 activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putInt(THEME_KEY, which).apply();
-                dialog.dismiss();
+                choiceDialog.dismiss();
                 applyTheme(activity);
             })
             .setNegativeButton("取消", null)
-            .show();
+            .create();
+        dialog.show();
+        applyDialogTheme(activity, dialog);
     }
 
     private static void openImagePicker(MainActivity activity) {
@@ -226,11 +330,13 @@ public final class PlusEnhancements {
 
     private static void showFxPresets(final MainActivity activity) {
         final String[] presets = {"霓虹辉光", "金属浮雕", "厚重 3D", "柔和投影", "清除预设特效"};
-        new AlertDialog.Builder(activity)
+        AlertDialog dialog = new AlertDialog.Builder(activity)
             .setTitle("文字特效预设（应用于当前选中对象）")
-            .setItems(presets, (dialog, which) -> applyFx(activity, which))
+            .setItems(presets, (ignoredDialog, which) -> applyFx(activity, which))
             .setNegativeButton("取消", null)
-            .show();
+            .create();
+        dialog.show();
+        applyDialogTheme(activity, dialog);
     }
 
     private static void applyFx(MainActivity activity, int which) {
@@ -402,6 +508,7 @@ public final class PlusEnhancements {
                 }
             }
         }
+        styleWidget(view, p);
         if (view instanceof ImageView) {
             ImageView image = (ImageView) view;
             int limit = dp(activity, 64);
@@ -411,6 +518,10 @@ public final class PlusEnhancements {
             view.setBackground(surface(p, activity));
         }
         if (view instanceof ViewGroup) {
+            if (view != activity.findViewById(android.R.id.content) && view.getBackground() == null
+                    && (view instanceof LinearLayout || view instanceof ScrollView || view.isClickable())) {
+                view.setBackground(surface(p, activity));
+            }
             if (Build.VERSION.SDK_INT >= 21 && (view instanceof LinearLayout || view instanceof ScrollView)) view.setElevation(dp(activity, index == 2 ? 8 : 3));
             ViewGroup group = (ViewGroup) view;
             for (int i = 0; i < group.getChildCount(); i++) styleTree(activity, group.getChildAt(i), p, index);
@@ -462,6 +573,7 @@ public final class PlusEnhancements {
     private static GradientDrawable surface(Palette p, Context context) {
         GradientDrawable d = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{p.surface, p.surface2});
         d.setCornerRadius(dp(context, p.radius));
+        d.setStroke(dp(context, 1), p.border);
         return d;
     }
 

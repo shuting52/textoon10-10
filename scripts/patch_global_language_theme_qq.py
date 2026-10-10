@@ -31,7 +31,7 @@ if '->localizeTree(Landroid/app/Activity;Landroid/view/View;)V' not in plus:
     assert plus.count(needle) == 1
     plus = plus.replace(needle, needle + '    invoke-static {p0, v0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->localizeTree(Landroid/app/Activity;Landroid/view/View;)V\n', 1)
 
-localize_method = r'''.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V
+localize_method = r'''.method public static localizeTree(Landroid/app/Activity;Landroid/view/View;)V
     .registers 5
     if-eqz p1, :tree_localize_done
     instance-of v0, p1, Landroid/widget/TextView;
@@ -82,7 +82,41 @@ localize_method = r'''.method private static localizeTree(Landroid/app/Activity;
     :tree_localize_done
     return-void
 .end method'''
-if '.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V' not in plus:
+if '.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V' in plus:
+    plus = plus.replace('.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V', '.method public static localizeTree(Landroid/app/Activity;Landroid/view/View;)V', 1)
+
+watch_method = r'''.method private static watchLocaleTree(Landroid/app/Activity;)V
+    .registers 4
+    if-eqz p0, :locale_watch_done
+    const v0, 0x1020002
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    if-eqz v0, :locale_watch_done
+    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    move-result-object v1
+    instance-of v2, v1, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;
+    if-nez v2, :locale_watch_done
+    if-eqz v1, :locale_watch_create
+    goto :locale_watch_done
+    :locale_watch_create
+    new-instance v1, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;
+    invoke-direct {v1, p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;-><init>(Landroid/app/Activity;)V
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    move-result-object v2
+    invoke-virtual {v2}, Landroid/view/ViewTreeObserver;->isAlive()Z
+    move-result v3
+    if-eqz v3, :locale_watch_done
+    invoke-virtual {v2, v1}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    :locale_watch_done
+    return-void
+.end method'''
+if '.method private static watchLocaleTree(Landroid/app/Activity;)V' not in plus:
+    insertion = '.method public static localizeTree(Landroid/app/Activity;Landroid/view/View;)V'
+    pos = plus.index(insertion)
+    plus = plus[:pos] + watch_method + '\n\n' + plus[pos:]
+
+if '.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V' not in plus and '.method public static localizeTree(Landroid/app/Activity;Landroid/view/View;)V' not in plus:
     insertion = '.method private static captureStyle(Landroid/view/View;)V'
     pos = plus.index(insertion)
     plus = plus[:pos] + localize_method + '\n\n' + plus[pos:]
@@ -196,6 +230,18 @@ if old_icons in plus:
 else:
     assert 'plus_theme_tint_image' in plus, 'styleTree icon/background block changed unexpectedly'
 
+# Re-localize newly inflated editor controls after layout changes. The root tag
+# prevents duplicate listeners when the activity resumes more than once.
+resume_start = plus.index('.method public static onMainResume(Lcom/imaginstudio/imagetools/pixellab/MainActivity;)V')
+resume_end = plus.index('.end method', resume_start) + len('.end method')
+resume = plus[resume_start:resume_end]
+watch_call = '    invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->watchLocaleTree(Landroid/app/Activity;)V'
+if '->watchLocaleTree(' not in resume:
+    apply_call = '    invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->applyTheme(Landroid/app/Activity;)V'
+    assert resume.count(apply_call) == 1, 'onMainResume theme call changed unexpectedly'
+    resume = resume.replace(apply_call, apply_call + '\n' + watch_call, 1)
+    plus = plus[:resume_start] + resume + plus[resume_end:]
+
 qq_method = r'''.method private static openQqGroup(Landroid/app/Activity;)V
     .registers 5
     if-eqz p0, :group_link_done
@@ -228,6 +274,40 @@ qq_method = r'''.method private static openQqGroup(Landroid/app/Activity;)V
 .end method'''
 PLUS.write_text(plus, encoding='utf-8')
 replace_method(PLUS, '.method private static openQqGroup(Landroid/app/Activity;)V', qq_method)
+
+watcher_path = SMALI / 'PlusEnhancements$LocaleWatcher.smali'
+watcher_path.write_text(r'''.class final Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;
+.super Ljava/lang/Object;
+.source "PlusEnhancements.java"
+
+# interfaces
+.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+# instance fields
+.field private final activity:Landroid/app/Activity;
+
+# direct methods
+.method constructor <init>(Landroid/app/Activity;)V
+    .registers 2
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p1, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;->activity:Landroid/app/Activity;
+    return-void
+.end method
+
+# virtual methods
+.method public onGlobalLayout()V
+    .registers 3
+    iget-object v0, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;->activity:Landroid/app/Activity;
+    if-eqz v0, :locale_layout_done
+    const v1, 0x1020002
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    move-result-object v1
+    if-eqz v1, :locale_layout_done
+    invoke-static {v0, v1}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->localizeTree(Landroid/app/Activity;Landroid/view/View;)V
+    :locale_layout_done
+    return-void
+.end method
+''', encoding='utf-8')
 
 # Case-insensitive fallback lets labels such as TEXT and DRAW match lowercase catalog keys.
 lang_method = r'''.method public static translateText(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
@@ -281,4 +361,4 @@ for rid, item in source.items():
     if item.get('text', '').strip().lower() in extra:
         data.setdefault('resources', {})[str(int(rid, 16))] = extra[item['text'].strip().lower()]
 locale_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-print('Patched rendered-text fallback, case-insensitive locale lookup, full view theming, direct QQ deep link, and zh-CN toolbar terms.')
+print('Patched rendered-text fallback, case-insensitive translation, live layout localization, full view theming, direct QQ deep link, and zh-CN toolbar terms.')

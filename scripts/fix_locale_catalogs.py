@@ -45,6 +45,57 @@ RULES = {
     'share_quick': 'quick_share', 'image_share': 'image_share',
 }
 
+# These are labels visible in the editor and export dialogs. The generated
+# catalogs used to contain inconsistent literal/ID translations for them.
+# Keep the ordering aligned with LANGS above.
+EXTRA_LABELS = {
+    'Image format': ['图像格式', '影像格式', 'Kuvamuoto', '画像形式', '이미지 형식', 'Format de l’image', 'Bildformat', 'Formato de imagen', 'Formato da imagem', 'Формат изображения', 'تنسيق الصورة', 'छवि प्रारूप', 'Format gambar', 'รูปแบบภาพ', 'Định dạng ảnh', 'Formato immagine', 'Görsel biçimi'],
+    'format :': ['格式：', '格式：', 'Muoto:', '形式：', '형식:', 'Format :', 'Format:', 'Formato:', 'Formato:', 'Формат:', 'التنسيق:', 'प्रारूप:', 'Format:', 'รูปแบบ:', 'Định dạng:', 'Formato:', 'Biçim:'],
+    'quality': ['质量', '品質', 'Laatu', '品質', '품질', 'Qualité', 'Qualität', 'Calidad', 'Qualidade', 'Качество', 'الجودة', 'गुणवत्ता', 'Kualitas', 'คุณภาพ', 'Chất lượng', 'Qualità', 'Kalite'],
+    'quality preset :': ['质量预设：', '品質預設：', 'Laadun esiasetus:', '品質プリセット：', '품질 프리셋:', 'Préréglage de qualité :', 'Qualitätsvorgabe:', 'Ajuste de calidad:', 'Predefinição de qualidade:', 'Предустановка качества:', 'إعداد الجودة:', 'गुणवत्ता प्रीसेट:', 'Prasetel kualitas:', 'ค่าคุณภาพที่ตั้งไว้:', 'Cài đặt chất lượng:', 'Preimpostazione qualità:', 'Kalite ön ayarı:'],
+    'dimensions :': ['尺寸：', '尺寸：', 'Mitat:', '寸法：', '크기:', 'Dimensions :', 'Abmessungen:', 'Dimensiones:', 'Dimensões:', 'Размеры:', 'الأبعاد:', 'आयाम:', 'Dimensi:', 'ขนาด:', 'Kích thước:', 'Dimensioni:', 'Boyutlar:'],
+    'width :': ['宽度：', '寬度：', 'Leveys:', '幅：', '너비:', 'Largeur :', 'Breite:', 'Ancho:', 'Largura:', 'Ширина:', 'العرض:', 'चौड़ाई:', 'Lebar:', 'ความกว้าง:', 'Chiều rộng:', 'Larghezza:', 'Genişlik:'],
+    'height :': ['高度：', '高度：', 'Korkeus:', '高さ：', '높이:', 'Hauteur :', 'Höhe:', 'Altura:', 'Altura:', 'Высота:', 'الارتفاع:', 'ऊंचाई:', 'Tinggi:', 'ความสูง:', 'Chiều cao:', 'Altezza:', 'Yükseklik:'],
+    'export image': ['导出图片', '匯出圖片', 'Vie kuva', '画像を書き出す', '이미지 내보내기', 'Exporter l’image', 'Bild exportieren', 'Exportar imagen', 'Exportar imagem', 'Экспортировать изображение', 'تصدير الصورة', 'छवि निर्यात करें', 'Ekspor gambar', 'ส่งออกรูปภาพ', 'Xuất ảnh', 'Esporta immagine', 'Görseli dışa aktar'],
+    'Export image': ['导出图片', '匯出圖片', 'Vie kuva', '画像を書き出す', '이미지 내보내기', 'Exporter l’image', 'Bild exportieren', 'Exportar imagen', 'Exportar imagem', 'Экспортировать изображение', 'تصدير الصورة', 'छवि निर्यात करें', 'Ekspor gambar', 'ส่งออกรูปภาพ', 'Xuất ảnh', 'Esporta immagine', 'Görseli dışa aktar'],
+    'save to gallery': ['保存到相册', '儲存至相簿', 'Tallenna galleriaan', 'ギャラリーに保存', '갤러리에 저장', 'Enregistrer dans la galerie', 'In der Galerie speichern', 'Guardar en la galería', 'Salvar na galeria', 'Сохранить в галерею', 'حفظ في المعرض', 'गैलरी में सहेजें', 'Simpan ke galeri', 'บันทึกลงแกลเลอรี', 'Lưu vào thư viện', 'Salva nella galleria', 'Galeriye kaydet'],
+    'Save to gallery': ['保存到相册', '儲存至相簿', 'Tallenna galleriaan', 'ギャラリーに保存', '갤러리에 저장', 'Enregistrer dans la galerie', 'In der Galerie speichern', 'Guardar en la galería', 'Salvar na galeria', 'Сохранить в галерею', 'حفظ في المعرض', 'गैलरी में सहेजें', 'Simpan ke galeri', 'บันทึกลงแกลเลอรี', 'Lưu vào thư viện', 'Salva nella galleria', 'Galeriye kaydet'],
+    'stickers': ['贴纸', '貼圖', 'Tarrat', 'ステッカー', '스티커', 'Autocollants', 'Aufkleber', 'Pegatinas', 'Adesivos', 'Наклейки', 'ملصقات', 'स्टिकर', 'Stiker', 'สติกเกอร์', 'Nhãn dán', 'Adesivi', 'Çıkartmalar'],
+    'stickers+': ['贴纸+', '貼圖+', 'Tarrat+', 'ステッカー+', '스티커+', 'Autocollants+', 'Aufkleber+', 'Pegatinas+', 'Adesivos+', 'Наклейки+', 'ملصقات+', 'स्टिकर+', 'Stiker+', 'สติกเกอร์+', 'Nhãn dán+', 'Adesivi+', 'Çıkartmalar+'],
+    'import': ['导入', '匯入', 'Tuo', 'インポート', '가져오기', 'Importer', 'Importieren', 'Importar', 'Importar', 'Импорт', 'استيراد', 'आयात', 'Impor', 'นำเข้า', 'Nhập', 'Importa', 'İçe aktar'],
+    'draw': ['绘制', '繪圖', 'Piirrä', '描画', '그리기', 'Dessiner', 'Zeichnen', 'Dibujar', 'Desenhar', 'Рисовать', 'رسم', 'चित्र बनाएं', 'Menggambar', 'วาด', 'Vẽ', 'Disegna', 'Çiz'],
+    'shapes': ['形状', '形狀', 'Muodot', '図形', '도형', 'Formes', 'Formen', 'Formas', 'Formas', 'Фигуры', 'أشكال', 'आकृतियां', 'Bentuk', 'รูปร่าง', 'Hình dạng', 'Forme', 'Şekiller'],
+    'bezier': ['贝塞尔', '貝茲曲線', 'Bézier', 'ベジェ曲線', '베지어 곡선', 'Bézier', 'Bézier', 'Bézier', 'Bézier', 'Кривая Безье', 'منحنى بيزييه', 'बेज़ियर', 'Bézier', 'เบซิเยร์', 'Bézier', 'Bézier', 'Bézier'],
+    'arrow': ['箭头', '箭頭', 'Nuoli', '矢印', '화살표', 'Flèche', 'Pfeil', 'Flecha', 'Seta', 'Стрелка', 'سهم', 'तीर', 'Panah', 'ลูกศร', 'Mũi tên', 'Freccia', 'Ok'],
+    'color': ['颜色', '顏色', 'Väri', '色', '색상', 'Couleur', 'Farbe', 'Color', 'Cor', 'Цвет', 'اللون', 'रंग', 'Warna', 'สี', 'Màu sắc', 'Colore', 'Renk'],
+    'transparent': ['透明', '透明', 'Läpinäkyvä', '透明', '투명', 'Transparent', 'Transparent', 'Transparente', 'Transparente', 'Прозрачный', 'شفاف', 'पारदर्शी', 'Transparan', 'โปร่งใส', 'Trong suốt', 'Trasparente', 'Şeffaf'],
+    'image size': ['图像尺寸', '影像尺寸', 'Kuvan koko', '画像サイズ', '이미지 크기', 'Taille de l’image', 'Bildgröße', 'Tamaño de imagen', 'Tamanho da imagem', 'Размер изображения', 'حجم الصورة', 'छवि का आकार', 'Ukuran gambar', 'ขนาดรูปภาพ', 'Kích thước ảnh', 'Dimensione immagine', 'Görsel boyutu'],
+    'image': ['图像', '影像', 'Kuva', '画像', '이미지', 'Image', 'Bild', 'Imagen', 'Imagem', 'Изображение', 'صورة', 'छवि', 'Gambar', 'รูปภาพ', 'Ảnh', 'Immagine', 'Görsel'],
+    'rotate': ['旋转', '旋轉', 'Kierrä', '回転', '회전', 'Faire pivoter', 'Drehen', 'Girar', 'Girar', 'Повернуть', 'تدوير', 'घुमाएं', 'Putar', 'หมุน', 'Xoay', 'Ruota', 'Döndür'],
+    'crop': ['裁剪', '裁切', 'Rajaa', '切り抜き', '자르기', 'Recadrer', 'Zuschneiden', 'Recortar', 'Cortar', 'Обрезать', 'اقتصاص', 'क्रॉप करें', 'Pangkas', 'ครอบตัด', 'Cắt', 'Ritaglia', 'Kırp'],
+    'noise': ['噪点', '雜訊', 'Kohina', 'ノイズ', '노이즈', 'Bruit', 'Rauschen', 'Ruido', 'Ruído', 'Шум', 'ضوضاء', 'शोर', 'Derau', 'นอยส์', 'Nhiễu', 'Rumore', 'Gürültü'],
+    'stripes': ['条纹', '條紋', 'Raidat', '縞模様', '줄무늬', 'Rayures', 'Streifen', 'Rayas', 'Listras', 'Полосы', 'خطوط', 'धारियां', 'Garis-garis', 'ลายเส้น', 'Sọc', 'Strisce', 'Şeritler'],
+    'brightness': ['亮度', '亮度', 'Kirkkaus', '明るさ', '밝기', 'Luminosité', 'Helligkeit', 'Brillo', 'Brilho', 'Яркость', 'السطوع', 'चमक', 'Kecerahan', 'ความสว่าง', 'Độ sáng', 'Luminosità', 'Parlaklık'],
+    'contrast': ['对比度', '對比度', 'Kontrasti', 'コントラスト', '대비', 'Contraste', 'Kontrast', 'Contraste', 'Contraste', 'Контраст', 'التباين', 'कंट्रास्ट', 'Kontras', 'ความเปรียบต่าง', 'Độ tương phản', 'Contrasto', 'Kontrast'],
+    'vignette': ['暗角', '暗角', 'Vinjetti', 'ビネット', '비네트', 'Vignettage', 'Vignettierung', 'Viñeta', 'Vinheta', 'Виньетирование', 'تظليل الحواف', 'विन्येट', 'Vinyet', 'ขอบมืด', 'Làm tối viền', 'Vignettatura', 'Vinyet'],
+}
+
+RESOURCE_EXTRA_LABELS = {
+    'share_format_title': 'Image format', 'share_format_label': 'format :',
+    'share_quality_title': 'quality', 'share_quality_label': 'quality preset :',
+    'dimensions': 'dimensions :', 'width_label': 'width :', 'height_label': 'height :',
+    'action_export_image': 'export image', 'share_export_title': 'Export image',
+    'share_save_to_gallery': 'save to gallery', 'error_save_to_gallery': 'Save to gallery',
+    'controls_stickers': 'stickers', 'stickers': 'stickers+',
+    'controls_import': 'import', 'controls_draw': 'draw', 'action_addDraw': 'draw',
+    'sticker_shapes': 'shapes', 'type_shapes': 'shapes', 'bezier': 'bezier',
+    'arrow': 'arrow', 'controls_color': 'color', 'color_color': 'color',
+    'controls_transparent': 'transparent', 'image_size': 'image size',
+    'controls_image': 'image', 'bg_crop': 'crop', 'controls_rotate': 'rotate',
+    'controls_noise': 'noise', 'controls_stripes': 'stripes',
+    'effect_brightness': 'brightness', 'effect_contrast': 'contrast',
+}
+
 ZH_CN_OVERRIDES = {
     'about_by': '修改版',
     'about_credit': '版本：1.9.5（24） · 原开发者：hu17 Ahmed Aes Abnderzoar 🇸🇾',
@@ -74,6 +125,20 @@ for index, locale in enumerate(LANGS):
         value = TERMS[concept][index]
         data['resources'][rid] = value
         data['texts'][source] = value
+        patched += 1
+    for source, translations in EXTRA_LABELS.items():
+        if len(translations) != len(LANGS):
+            raise RuntimeError('Bad label translation table length: ' + source)
+        data['texts'][source] = translations[index]
+        patched += 1
+    for name, source in RESOURCE_EXTRA_LABELS.items():
+        record = source_by_name.get(name)
+        if not record:
+            continue
+        rid, original = record
+        value = EXTRA_LABELS[source][index]
+        data['resources'][rid] = value
+        data['texts'][original] = value
         patched += 1
     if locale == 'zh-CN':
         for name, value in ZH_CN_OVERRIDES.items():

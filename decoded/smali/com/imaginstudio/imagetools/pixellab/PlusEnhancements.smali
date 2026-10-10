@@ -712,7 +712,34 @@
     return-void
 .end method
 
-.method private static localizeTree(Landroid/app/Activity;Landroid/view/View;)V
+.method private static watchLocaleTree(Landroid/app/Activity;)V
+    .registers 4
+    if-eqz p0, :locale_watch_done
+    const v0, 0x1020002
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+    if-eqz v0, :locale_watch_done
+    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    move-result-object v1
+    instance-of v2, v1, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;
+    if-nez v2, :locale_watch_done
+    if-eqz v1, :locale_watch_create
+    goto :locale_watch_done
+    :locale_watch_create
+    new-instance v1, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;
+    invoke-direct {v1, p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;-><init>(Landroid/app/Activity;)V
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    move-result-object v2
+    invoke-virtual {v2}, Landroid/view/ViewTreeObserver;->isAlive()Z
+    move-result v3
+    if-eqz v3, :locale_watch_done
+    invoke-virtual {v2, v1}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    :locale_watch_done
+    return-void
+.end method
+
+.method public static localizeTree(Landroid/app/Activity;Landroid/view/View;)V
     .registers 5
     if-eqz p1, :tree_localize_done
     instance-of v0, p1, Landroid/widget/TextView;
@@ -1418,6 +1445,7 @@
     :cond_3
     :try_start_3
     invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->applyTheme(Landroid/app/Activity;)V
+    invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->watchLocaleTree(Landroid/app/Activity;)V
 
     .line 79
     invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->dockLayersRight(Lcom/imaginstudio/imagetools/pixellab/MainActivity;)V

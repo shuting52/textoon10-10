@@ -12,9 +12,15 @@
 - `resources_values.txt`、`string_resources.json`：本地化处理所需的资源文本数据。
 - `research/`：Argos Translate 离线翻译模型来源说明。
 
+## Android 兼容性
+
+- 最低系统版本为 Android 6.0（API 23），配置位于 `decoded/apktool.yml`。
+- `targetSdkVersion` 暂保留为 API 23，以避免在未迁移旧版外部存储读写逻辑前启用较新的存储与系统行为限制。APK 可面向 Android 6 及以上系统安装，但本项目未在每个新系统版本上进行真机验证；API 23 目标版本也不满足 Google Play 当前新应用/更新的 API 36 目标要求。
+- 华为设备需区分系统版本和服务框架：带 Android 应用兼容环境的机型可按 APK 方式测试；该应用含 Google 广告和 Play Billing 组件，在缺少 GMS/Google Play 的设备上相应广告、购买能力可能不可用。HarmonyOS 原生环境/不同版本的 APK 兼容能力未在本项目中验证；完整原生适配需要额外的 HarmonyOS 工程及 HMS 服务实现。
+
 ## 本地构建说明
 
-构建脚本依赖 Android SDK Build Tools、Smali 工具、签名密钥，以及 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk` 作为当前基础 APK。运行 `scripts/package_plus_fixed_apk.sh` 会先应用主题/长按补丁，再组装 DEX、打包 17 种离线语言目录并验证签名与包内资源。新 APK 输出至 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk`。`generate_locale_catalogs.py` 会从 Argos Translate 软件包索引下载所需语言模型；模型文件不随仓库提交。
+构建依赖 Android SDK Build Tools 37.0.0、Smali 工具、签名密钥，以及 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk` 作为基础 APK。基础 APK 不包含在仓库中。运行 `scripts/package_plus_fixed_apk.sh` 会应用主题/长按补丁、组装 DEX、只更新基础 APK 二进制 `AndroidManifest.xml` 中的最低/目标 SDK 数值（不重编旧资源表）、打包 17 种离线语言目录并验证 SDK 元数据、签名和包内资源。新 APK 输出至 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk`。如需指定其他基础 APK，可设置 `PIXELLAB_BASE_APK`。`generate_locale_catalogs.py` 会从 Argos Translate 软件包索引下载所需语言模型；模型文件不随仓库提交。
 
 长按画布文字时仅在手指未明显移动且长按目标仍为当前选中文字的情况下弹出删除/取消操作；删除继续调用原有对象历史记录流程，因此可通过应用撤销。主题覆盖文字、提示文字、按钮/复选组件、进度控件、图标和主要容器，并保留画布文字及大尺寸图片内容本身的颜色。
 

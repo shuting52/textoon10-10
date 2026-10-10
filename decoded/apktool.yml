@@ -9,7 +9,7 @@ packageInfo:
   forcedPackageId: '23'
   renameManifestPackage: com.imaginstudio.imagetools.pixellabPlus
 sdkInfo:
-  minSdkVersion: '16'
+  minSdkVersion: '23'
   targetSdkVersion: '23'
 sharedLibrary: false
 sparseResources: false

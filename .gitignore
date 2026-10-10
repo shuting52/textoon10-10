@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Build outputs and installable packages
+build/
+*.apk
+*.idsig
+
+# Downloaded offline translation models
+models/
+*.argosmodel
+
+# Decompiled app material not needed by the tracked customization source
+decoded/assets/
+decoded/original/
+decoded/build/
+decoded/unknown/
+decoded/res/
+decoded/*.orig
+decoded212/
+
+# Local extraction logs and binary resource table
+decode*.log
+resources.arsc
+resources.txt
+resources_aapt2.txt

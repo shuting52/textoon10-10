@@ -1,0 +1,83 @@
+.class Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand$170;
+.super Ljava/lang/Object;
+.source "optionExpand.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;->addControlsForMessage(I)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;
+
+
+# direct methods
+.method constructor <init>(Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;)V
+    .locals 0
+
+    .line 3280
+    iput-object p1, p0, Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand$170;->this$0:Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/view/View;)V
+    .locals 4
+
+    const-string v3, "ModGuard - Protect Your Piracy v1.2 by ill420smoker"
+
+    .line 3283
+    const/4 v3, 0x2
+
+    iget-object p1, p0, Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand$170;->this$0:Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;
+
+    invoke-static {p1}, Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;->access$300(Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;)Lcom/imaginstudio/imagetools/pixellab/TextObject/TextComponent;
+
+    move-result-object p1
+
+    sget-object v0, Lcom/imaginstudio/imagetools/pixellab/MainActivity;->helperClass:Lcom/imaginstudio/imagetools/pixellab/ImageInfo/displayInfo;
+
+    invoke-virtual {v0}, Lcom/imaginstudio/imagetools/pixellab/ImageInfo/displayInfo;->getContainerWidth()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    div-float/2addr v0, v1
+
+    iget-object v2, p0, Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand$170;->this$0:Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;
+
+    invoke-static {v2}, Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;->access$300(Lcom/imaginstudio/imagetools/pixellab/controls/optionExpand;)Lcom/imaginstudio/imagetools/pixellab/TextObject/TextComponent;
+
+    move-result-object v2
+
+    iget v2, v2, Lcom/imaginstudio/imagetools/pixellab/TextObject/TextComponent;->textWidth:I
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v1
+
+    sub-float/2addr v0, v2
+
+    invoke-virtual {p1, v0}, Lcom/imaginstudio/imagetools/pixellab/TextObject/TextComponent;->setX(F)V
+
+    return-void
+
+    const/4 v1, 0x3
+.end method

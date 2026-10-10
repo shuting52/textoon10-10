@@ -1,0 +1,36 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: PixelLabPlus_1.9.5.apk
+compressionType: false
+doNotCompress:
+- png
+- assets/textstyles/18/thumb
+isFrameworkApk: true
+packageInfo:
+  forcedPackageId: '23'
+  renameManifestPackage: com.imaginstudio.imagetools.pixellabPlus
+sdkInfo:
+  minSdkVersion: '16'
+  targetSdkVersion: '23'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  play-services-ads-base.properties: '8'
+  play-services-ads-identifier.properties: '8'
+  play-services-ads-lite.properties: '8'
+  play-services-ads.properties: '8'
+  play-services-basement.properties: '8'
+  play-services-gass.properties: '8'
+  fabric/com.crashlytics.sdk.android.answers.properties: '8'
+  fabric/com.crashlytics.sdk.android.beta.properties: '8'
+  fabric/com.crashlytics.sdk.android.crashlytics-core.properties: '8'
+  fabric/com.crashlytics.sdk.android.crashlytics.properties: '8'
+  fabric/com.mopub.sdk.android.mopub.properties: '8'
+  fabric/io.fabric.sdk.android.fabric.properties: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.7.0-dirty
+versionInfo:
+  versionCode: '24'
+  versionName: 1.9.5

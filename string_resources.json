@@ -1,0 +1,1582 @@
+{
+  "0x7f0c0000": {
+    "name": "abc_action_bar_home_description",
+    "text": "Navigate home"
+  },
+  "0x7f0c0001": {
+    "name": "abc_action_bar_home_description_format",
+    "text": "%1$s, %2$s"
+  },
+  "0x7f0c0002": {
+    "name": "abc_action_bar_home_subtitle_description_format",
+    "text": "%1$s, %2$s, %3$s"
+  },
+  "0x7f0c0003": {
+    "name": "abc_action_bar_up_description",
+    "text": "Navigate up"
+  },
+  "0x7f0c0004": {
+    "name": "abc_action_menu_overflow_description",
+    "text": "More options"
+  },
+  "0x7f0c0005": {
+    "name": "abc_action_mode_done",
+    "text": "Done"
+  },
+  "0x7f0c0006": {
+    "name": "abc_activity_chooser_view_see_all",
+    "text": "See all"
+  },
+  "0x7f0c0007": {
+    "name": "abc_activitychooserview_choose_application",
+    "text": "Choose an app"
+  },
+  "0x7f0c0008": {
+    "name": "abc_capital_off",
+    "text": "OFF"
+  },
+  "0x7f0c0009": {
+    "name": "abc_capital_on",
+    "text": "ON"
+  },
+  "0x7f0c000a": {
+    "name": "abc_font_family_body_1_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c000b": {
+    "name": "abc_font_family_body_2_material",
+    "text": "sans-serif-medium"
+  },
+  "0x7f0c000c": {
+    "name": "abc_font_family_button_material",
+    "text": "sans-serif-medium"
+  },
+  "0x7f0c000d": {
+    "name": "abc_font_family_caption_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c000e": {
+    "name": "abc_font_family_display_1_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c000f": {
+    "name": "abc_font_family_display_2_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c0010": {
+    "name": "abc_font_family_display_3_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c0011": {
+    "name": "abc_font_family_display_4_material",
+    "text": "sans-serif-light"
+  },
+  "0x7f0c0012": {
+    "name": "abc_font_family_headline_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c0013": {
+    "name": "abc_font_family_menu_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c0014": {
+    "name": "abc_font_family_subhead_material",
+    "text": "sans-serif"
+  },
+  "0x7f0c0015": {
+    "name": "abc_font_family_title_material",
+    "text": "sans-serif-medium"
+  },
+  "0x7f0c0016": {
+    "name": "abc_search_hint",
+    "text": "Search…"
+  },
+  "0x7f0c0017": {
+    "name": "abc_searchview_description_clear",
+    "text": "Clear query"
+  },
+  "0x7f0c0018": {
+    "name": "abc_searchview_description_query",
+    "text": "Search query"
+  },
+  "0x7f0c0019": {
+    "name": "abc_searchview_description_search",
+    "text": "Search"
+  },
+  "0x7f0c001a": {
+    "name": "abc_searchview_description_submit",
+    "text": "Submit query"
+  },
+  "0x7f0c001b": {
+    "name": "abc_searchview_description_voice",
+    "text": "Voice search"
+  },
+  "0x7f0c001c": {
+    "name": "abc_shareactionprovider_share_with",
+    "text": "Share with"
+  },
+  "0x7f0c001d": {
+    "name": "abc_shareactionprovider_share_with_application",
+    "text": "Share with %s"
+  },
+  "0x7f0c001e": {
+    "name": "abc_toolbar_collapse_description",
+    "text": "Collapse"
+  },
+  "0x7f0c001f": {
+    "name": "about_by",
+    "text": "مهكر"
+  },
+  "0x7f0c0020": {
+    "name": "about_credit",
+    "text": "V: 1.9.5 (24) dev: hu17 Ahmed_aes abnderzoar🇸🇾"
+  },
+  "0x7f0c0021": {
+    "name": "action_about",
+    "text": "about"
+  },
+  "0x7f0c0022": {
+    "name": "action_add",
+    "text": "Add object"
+  },
+  "0x7f0c0023": {
+    "name": "action_addDraw",
+    "text": "draw"
+  },
+  "0x7f0c0024": {
+    "name": "action_addGallery",
+    "text": "from gallery"
+  },
+  "0x7f0c0025": {
+    "name": "action_addSticker",
+    "text": "sticker"
+  },
+  "0x7f0c0026": {
+    "name": "action_addText",
+    "text": "text"
+  },
+  "0x7f0c0027": {
+    "name": "action_addText_date",
+    "text": "current date"
+  },
+  "0x7f0c0028": {
+    "name": "action_bug",
+    "text": "report a bug"
+  },
+  "0x7f0c0029": {
+    "name": "action_cancel",
+    "text": "Cancel"
+  },
+  "0x7f0c002a": {
+    "name": "action_clear",
+    "text": "Clear"
+  },
+  "0x7f0c002b": {
+    "name": "action_copy",
+    "text": "copy"
+  },
+  "0x7f0c002c": {
+    "name": "action_done",
+    "text": "Done"
+  },
+  "0x7f0c002d": {
+    "name": "action_edit_text",
+    "text": "edit text"
+  },
+  "0x7f0c002e": {
+    "name": "action_example",
+    "text": "Example action"
+  },
+  "0x7f0c002f": {
+    "name": "action_exit",
+    "text": "exit"
+  },
+  "0x7f0c0030": {
+    "name": "action_export_image",
+    "text": "export image"
+  },
+  "0x7f0c0031": {
+    "name": "action_feedback",
+    "text": "contact us/report bug"
+  },
+  "0x7f0c0032": {
+    "name": "action_quote",
+    "text": "Browse quotes"
+  },
+  "0x7f0c0033": {
+    "name": "action_remove_ads",
+    "text": "remove ads"
+  },
+  "0x7f0c0034": {
+    "name": "action_resize",
+    "text": "scale"
+  },
+  "0x7f0c0035": {
+    "name": "action_rotate",
+    "text": "rotate 90°"
+  },
+  "0x7f0c0036": {
+    "name": "action_rotate_object",
+    "text": "rotate"
+  },
+  "0x7f0c0037": {
+    "name": "action_save",
+    "text": "save"
+  },
+  "0x7f0c0038": {
+    "name": "action_save_project",
+    "text": "save as project"
+  },
+  "0x7f0c0039": {
+    "name": "action_scale",
+    "text": "size"
+  },
+  "0x7f0c003a": {
+    "name": "action_setBg_camera",
+    "text": "use image from camera"
+  },
+  "0x7f0c003b": {
+    "name": "action_setBg_gallery",
+    "text": "use image from gallery"
+  },
+  "0x7f0c003c": {
+    "name": "action_settings",
+    "text": "Settings"
+  },
+  "0x7f0c003d": {
+    "name": "action_share",
+    "text": "Share"
+  },
+  "0x7f0c003e": {
+    "name": "action_to_back",
+    "text": "to back"
+  },
+  "0x7f0c003f": {
+    "name": "action_to_front",
+    "text": "to front"
+  },
+  "0x7f0c0040": {
+    "name": "action_tutorials",
+    "text": "صفحة تحديث PixelLap مهكر"
+  },
+  "0x7f0c0041": {
+    "name": "actions_option",
+    "text": "Actions"
+  },
+  "0x7f0c0042": {
+    "name": "add_directory",
+    "text": "Add directory"
+  },
+  "0x7f0c0043": {
+    "name": "add_quote_title",
+    "text": "Add quote"
+  },
+  "0x7f0c0044": {
+    "name": "add_selected",
+    "text": "Add selected"
+  },
+  "0x7f0c0045": {
+    "name": "admob_app_id",
+    "text": "ca-app-pub-4585203665014179~5968603633"
+  },
+  "0x7f0c0046": {
+    "name": "advanced",
+    "text": "Advanced"
+  },
+  "0x7f0c0047": {
+    "name": "also_add",
+    "text": "Do you want to add it to your projects as well ?"
+  },
+  "0x7f0c0048": {
+    "name": "app_name",
+    "text": "PixelLab Plus"
+  },
+  "0x7f0c0049": {
+    "name": "arrow",
+    "text": "arrow"
+  },
+  "0x7f0c004a": {
+    "name": "aspect_ratio_label",
+    "text": "aspect ratio :"
+  },
+  "0x7f0c004b": {
+    "name": "auto",
+    "text": "auto"
+  },
+  "0x7f0c004c": {
+    "name": "available_autosaves",
+    "text": "Available autosaves"
+  },
+  "0x7f0c004d": {
+    "name": "background_saving_image",
+    "text": "Saving image"
+  },
+  "0x7f0c004e": {
+    "name": "background_saving_preset",
+    "text": "Saving project"
+  },
+  "0x7f0c004f": {
+    "name": "banner_erase_id",
+    "text": "ca-app-pub-4585203665014179/6524932981"
+  },
+  "0x7f0c0050": {
+    "name": "banner_quotes_id",
+    "text": "ca-app-pub-4585203665014179/4097102850"
+  },
+  "0x7f0c0051": {
+    "name": "banner_share_id",
+    "text": "ca-app-pub-4585203665014179/9889462925"
+  },
+  "0x7f0c0052": {
+    "name": "begin_size",
+    "text": "begin arrow size"
+  },
+  "0x7f0c0053": {
+    "name": "bezier",
+    "text": "bezier"
+  },
+  "0x7f0c0054": {
+    "name": "bezier_mode",
+    "text": "bezier mode"
+  },
+  "0x7f0c0055": {
+    "name": "bg_crop",
+    "text": "crop"
+  },
+  "0x7f0c0056": {
+    "name": "browse",
+    "text": "browse"
+  },
+  "0x7f0c0057": {
+    "name": "cancel_caps",
+    "text": "CANCEL"
+  },
+  "0x7f0c0058": {
+    "name": "color_advanced",
+    "text": "advanced"
+  },
+  "0x7f0c0059": {
+    "name": "color_alpha_label",
+    "text": "Opacity :"
+  },
+  "0x7f0c005a": {
+    "name": "color_color",
+    "text": "color"
+  },
+  "0x7f0c005b": {
+    "name": "color_filter",
+    "text": "color filters"
+  },
+  "0x7f0c005c": {
+    "name": "color_gradient",
+    "text": "gradient"
+  },
+  "0x7f0c005d": {
+    "name": "color_saturation_label",
+    "text": "Saturation :"
+  },
+  "0x7f0c005e": {
+    "name": "com.crashlytics.android.build_id",
+    "text": "d4af6599-365e-46a6-90b8-257003da0c3f"
+  },
+  "0x7f0c005f": {
+    "name": "common_google_play_services_unknown_issue",
+    "text": "%1$s is having trouble with Google Play services. Please try again."
+  },
+  "0x7f0c0060": {
+    "name": "confirm_operation",
+    "text": "Confirmation :"
+  },
+  "0x7f0c0061": {
+    "name": "confirm_recover",
+    "text": "Are you sure you want recover the auto-saved state ?"
+  },
+  "0x7f0c0062": {
+    "name": "confirm_removal",
+    "text": "Are you sure you want to remove : \\n"
+  },
+  "0x7f0c0063": {
+    "name": "confirm_stop_op",
+    "text": "Are you sure you want to cancel the current operation ?"
+  },
+  "0x7f0c0064": {
+    "name": "confirmation_apply_preset",
+    "text": "Are you sure you want to open the project (any progress will be lost)"
+  },
+  "0x7f0c0065": {
+    "name": "confirmation_delete",
+    "text": "Delete the selected object ?"
+  },
+  "0x7f0c0066": {
+    "name": "confirmation_exit",
+    "text": "press back button again to exit"
+  },
+  "0x7f0c0067": {
+    "name": "confirmation_preset_deletion",
+    "text": "Project deletion"
+  },
+  "0x7f0c0068": {
+    "name": "controls_3d_rotate",
+    "text": "3d rotate"
+  },
+  "0x7f0c0069": {
+    "name": "controls_3d_shadow",
+    "text": "3d shadow"
+  },
+  "0x7f0c006a": {
+    "name": "controls_3d_shape",
+    "text": "3d shape"
+  },
+  "0x7f0c006b": {
+    "name": "controls_3d_text",
+    "text": "3d text"
+  },
+  "0x7f0c006c": {
+    "name": "controls_align",
+    "text": "align"
+  },
+  "0x7f0c006d": {
+    "name": "controls_aspect_ratio",
+    "text": "aspect ratio"
+  },
+  "0x7f0c006e": {
+    "name": "controls_background",
+    "text": "background"
+  },
+  "0x7f0c006f": {
+    "name": "controls_color",
+    "text": "color"
+  },
+  "0x7f0c0070": {
+    "name": "controls_copy",
+    "text": "copy"
+  },
+  "0x7f0c0071": {
+    "name": "controls_curve",
+    "text": "curve"
+  },
+  "0x7f0c0072": {
+    "name": "controls_delete",
+    "text": "delete"
+  },
+  "0x7f0c0073": {
+    "name": "controls_draw",
+    "text": "draw"
+  },
+  "0x7f0c0074": {
+    "name": "controls_edit",
+    "text": "edit"
+  },
+  "0x7f0c0075": {
+    "name": "controls_emboss",
+    "text": "Emboss"
+  },
+  "0x7f0c0076": {
+    "name": "controls_font",
+    "text": "font"
+  },
+  "0x7f0c0077": {
+    "name": "controls_from_camera",
+    "text": "from camera"
+  },
+  "0x7f0c0078": {
+    "name": "controls_from_gallery",
+    "text": "from gallery"
+  },
+  "0x7f0c0079": {
+    "name": "controls_image",
+    "text": "image"
+  },
+  "0x7f0c007a": {
+    "name": "controls_import",
+    "text": "import"
+  },
+  "0x7f0c007b": {
+    "name": "controls_inner_shadow",
+    "text": "inner shadow"
+  },
+  "0x7f0c007c": {
+    "name": "controls_label_expand",
+    "text": "expand by"
+  },
+  "0x7f0c007d": {
+    "name": "controls_line_spacing",
+    "text": "line spacing"
+  },
+  "0x7f0c007e": {
+    "name": "controls_mask",
+    "text": "mask"
+  },
+  "0x7f0c007f": {
+    "name": "controls_noise",
+    "text": "noise"
+  },
+  "0x7f0c0080": {
+    "name": "controls_opacity",
+    "text": "opacity"
+  },
+  "0x7f0c0081": {
+    "name": "controls_perspective",
+    "text": "perspective"
+  },
+  "0x7f0c0082": {
+    "name": "controls_position",
+    "text": "position"
+  },
+  "0x7f0c0083": {
+    "name": "controls_projects",
+    "text": "my projects"
+  },
+  "0x7f0c0084": {
+    "name": "controls_quotes",
+    "text": "quotes"
+  },
+  "0x7f0c0085": {
+    "name": "controls_reflection",
+    "text": "reflection"
+  },
+  "0x7f0c0086": {
+    "name": "controls_relative_position",
+    "text": "relative position"
+  },
+  "0x7f0c0087": {
+    "name": "controls_relative_size",
+    "text": "relative size"
+  },
+  "0x7f0c0088": {
+    "name": "controls_remove_color",
+    "text": "erase color"
+  },
+  "0x7f0c0089": {
+    "name": "controls_reselect",
+    "text": "reselect"
+  },
+  "0x7f0c008a": {
+    "name": "controls_rotate",
+    "text": "rotate"
+  },
+  "0x7f0c008b": {
+    "name": "controls_shadow",
+    "text": "shadow"
+  },
+  "0x7f0c008c": {
+    "name": "controls_size",
+    "text": "size"
+  },
+  "0x7f0c008d": {
+    "name": "controls_spacing",
+    "text": "spacing"
+  },
+  "0x7f0c008e": {
+    "name": "controls_stickers",
+    "text": "stickers"
+  },
+  "0x7f0c008f": {
+    "name": "controls_stripes",
+    "text": "stripes"
+  },
+  "0x7f0c0090": {
+    "name": "controls_stroke",
+    "text": "stroke"
+  },
+  "0x7f0c0091": {
+    "name": "controls_style",
+    "text": "style"
+  },
+  "0x7f0c0092": {
+    "name": "controls_texture",
+    "text": "texture"
+  },
+  "0x7f0c0093": {
+    "name": "controls_to_back",
+    "text": "to back"
+  },
+  "0x7f0c0094": {
+    "name": "controls_to_front",
+    "text": "to front"
+  },
+  "0x7f0c0095": {
+    "name": "controls_transparent",
+    "text": "transparent"
+  },
+  "0x7f0c0096": {
+    "name": "create_new",
+    "text": "Create new"
+  },
+  "0x7f0c0097": {
+    "name": "darken",
+    "text": "darken"
+  },
+  "0x7f0c0098": {
+    "name": "date_asc",
+    "text": "Date ascending"
+  },
+  "0x7f0c0099": {
+    "name": "date_desc",
+    "text": "Date descending"
+  },
+  "0x7f0c009a": {
+    "name": "default_styles",
+    "text": "Default"
+  },
+  "0x7f0c009b": {
+    "name": "delete_font",
+    "text": "Delete"
+  },
+  "0x7f0c009c": {
+    "name": "denied_message",
+    "text": "Please restart the app and accept the permission or turn it on at Setting - Permission"
+  },
+  "0x7f0c009d": {
+    "name": "depth",
+    "text": "Depth"
+  },
+  "0x7f0c009e": {
+    "name": "depth1",
+    "text": "depth"
+  },
+  "0x7f0c009f": {
+    "name": "depth_color",
+    "text": "depth color"
+  },
+  "0x7f0c00a0": {
+    "name": "dimensions",
+    "text": "dimensions :"
+  },
+  "0x7f0c00a1": {
+    "name": "drawing_dashed",
+    "text": "Dashed line"
+  },
+  "0x7f0c00a2": {
+    "name": "drawing_fill",
+    "text": "Fill inside"
+  },
+  "0x7f0c00a3": {
+    "name": "drawing_neon",
+    "text": "Neon effect"
+  },
+  "0x7f0c00a4": {
+    "name": "editor_lower_case",
+    "text": "lowercase"
+  },
+  "0x7f0c00a5": {
+    "name": "editor_type_text",
+    "text": "Type some text…"
+  },
+  "0x7f0c00a6": {
+    "name": "editor_upper_case",
+    "text": "UPPERCASE"
+  },
+  "0x7f0c00a7": {
+    "name": "effect_brightness",
+    "text": "brightness"
+  },
+  "0x7f0c00a8": {
+    "name": "effect_contrast",
+    "text": "contrast"
+  },
+  "0x7f0c00a9": {
+    "name": "effect_hue",
+    "text": "hue"
+  },
+  "0x7f0c00aa": {
+    "name": "effect_saturation",
+    "text": "saturation"
+  },
+  "0x7f0c00ab": {
+    "name": "email_load_error",
+    "text": "Error while Loading email app"
+  },
+  "0x7f0c00ac": {
+    "name": "en",
+    "text": "English"
+  },
+  "0x7f0c00ad": {
+    "name": "end_size",
+    "text": "end arrow size"
+  },
+  "0x7f0c00ae": {
+    "name": "eraser_option",
+    "text": "eraser"
+  },
+  "0x7f0c00af": {
+    "name": "error_format_unsupported",
+    "text": "Unsupported file format !"
+  },
+  "0x7f0c00b0": {
+    "name": "error_get_camera",
+    "text": "Couldn't load Camera"
+  },
+  "0x7f0c00b1": {
+    "name": "error_get_image",
+    "text": "Couldn't get image"
+  },
+  "0x7f0c00b2": {
+    "name": "error_invalid",
+    "text": "Invalid Image !"
+  },
+  "0x7f0c00b3": {
+    "name": "error_load_app",
+    "text": "There was a problem while loading the app !"
+  },
+  "0x7f0c00b4": {
+    "name": "error_load_image",
+    "text": "Couldn't load image !"
+  },
+  "0x7f0c00b5": {
+    "name": "error_merge",
+    "text": "An error has occurred while merging the objects"
+  },
+  "0x7f0c00b6": {
+    "name": "error_name_exists",
+    "text": "Project with the same name exists, can't save !"
+  },
+  "0x7f0c00b7": {
+    "name": "error_no_app",
+    "text": "Couldn't find the app !"
+  },
+  "0x7f0c00b8": {
+    "name": "error_no_draw",
+    "text": "You didn't draw anything !"
+  },
+  "0x7f0c00b9": {
+    "name": "error_no_internet",
+    "text": "No internet connection found"
+  },
+  "0x7f0c00ba": {
+    "name": "error_quotes_load",
+    "text": "Can't load quotes"
+  },
+  "0x7f0c00bb": {
+    "name": "error_render_size",
+    "text": "Can't create image : provided size is not supported by your device !"
+  },
+  "0x7f0c00bc": {
+    "name": "error_save_image",
+    "text": "An error has occurred while saving the image!"
+  },
+  "0x7f0c00bd": {
+    "name": "error_save_to_gallery",
+    "text": "Save to gallery"
+  },
+  "0x7f0c00be": {
+    "name": "error_saving",
+    "text": "There was a problem saving …"
+  },
+  "0x7f0c00bf": {
+    "name": "error_saving_preset",
+    "text": "there was a problem while saving the preset !"
+  },
+  "0x7f0c00c0": {
+    "name": "exit_confirm",
+    "text": "Are you sure you want to exit PixelLab ?"
+  },
+  "0x7f0c00c1": {
+    "name": "exo_controls_fastforward_description",
+    "text": "Fast forward"
+  },
+  "0x7f0c00c2": {
+    "name": "exo_controls_next_description",
+    "text": "Next track"
+  },
+  "0x7f0c00c3": {
+    "name": "exo_controls_pause_description",
+    "text": "Pause"
+  },
+  "0x7f0c00c4": {
+    "name": "exo_controls_play_description",
+    "text": "Play"
+  },
+  "0x7f0c00c5": {
+    "name": "exo_controls_previous_description",
+    "text": "Previous track"
+  },
+  "0x7f0c00c6": {
+    "name": "exo_controls_rewind_description",
+    "text": "Rewind"
+  },
+  "0x7f0c00c7": {
+    "name": "exo_controls_stop_description",
+    "text": "Stop"
+  },
+  "0x7f0c00c8": {
+    "name": "extrude_stroke",
+    "text": "extrude stroke"
+  },
+  "0x7f0c00c9": {
+    "name": "feedback_bug",
+    "text": "Bug"
+  },
+  "0x7f0c00ca": {
+    "name": "feedback_cancel",
+    "text": "Cancel"
+  },
+  "0x7f0c00cb": {
+    "name": "feedback_hint",
+    "text": "Type your feedback here…"
+  },
+  "0x7f0c00cc": {
+    "name": "feedback_idea",
+    "text": "Idea"
+  },
+  "0x7f0c00cd": {
+    "name": "feedback_message",
+    "text": "Please type your message here"
+  },
+  "0x7f0c00ce": {
+    "name": "feedback_question",
+    "text": "Question"
+  },
+  "0x7f0c00cf": {
+    "name": "feedback_send",
+    "text": "Send"
+  },
+  "0x7f0c00d0": {
+    "name": "feedback_thanks",
+    "text": "Thank you for your feedback!"
+  },
+  "0x7f0c00d1": {
+    "name": "feedback_title",
+    "text": "Contact us/Report bug"
+  },
+  "0x7f0c00d2": {
+    "name": "fill_color",
+    "text": "fill color"
+  },
+  "0x7f0c00d3": {
+    "name": "fill_fill",
+    "text": "Fill"
+  },
+  "0x7f0c00d4": {
+    "name": "fill_stroke",
+    "text": "Stroke"
+  },
+  "0x7f0c00d5": {
+    "name": "font_delete_fail",
+    "text": "Couldn't delete font"
+  },
+  "0x7f0c00d6": {
+    "name": "font_deleted",
+    "text": "Font deleted"
+  },
+  "0x7f0c00d7": {
+    "name": "font_warning_default",
+    "text": "No fonts found : make sure the app is installed"
+  },
+  "0x7f0c00d8": {
+    "name": "fr",
+    "text": "French"
+  },
+  "0x7f0c00d9": {
+    "name": "fullscreen_set",
+    "text": "fullscreen"
+  },
+  "0x7f0c00da": {
+    "name": "gradient_end_color",
+    "text": "end color"
+  },
+  "0x7f0c00db": {
+    "name": "gradient_start_color",
+    "text": "start color"
+  },
+  "0x7f0c00dc": {
+    "name": "height_label",
+    "text": "height :"
+  },
+  "0x7f0c00dd": {
+    "name": "hello_world",
+    "text": "Hello world!"
+  },
+  "0x7f0c00de": {
+    "name": "hide_font",
+    "text": "Hide"
+  },
+  "0x7f0c00df": {
+    "name": "hor_guides",
+    "text": "number of horizontal guides :"
+  },
+  "0x7f0c00e0": {
+    "name": "horizontal",
+    "text": "horizontal"
+  },
+  "0x7f0c00e1": {
+    "name": "image_flip",
+    "text": "flip"
+  },
+  "0x7f0c00e2": {
+    "name": "image_height",
+    "text": "Height"
+  },
+  "0x7f0c00e3": {
+    "name": "image_render",
+    "text": "Rendering image"
+  },
+  "0x7f0c00e4": {
+    "name": "image_saved",
+    "text": "Image saved"
+  },
+  "0x7f0c00e5": {
+    "name": "image_share",
+    "text": "Share the image : "
+  },
+  "0x7f0c00e6": {
+    "name": "image_size",
+    "text": "image size"
+  },
+  "0x7f0c00e7": {
+    "name": "image_width",
+    "text": "Width"
+  },
+  "0x7f0c00e8": {
+    "name": "imported_fonts",
+    "text": "Imported fonts"
+  },
+  "0x7f0c00e9": {
+    "name": "in",
+    "text": "in"
+  },
+  "0x7f0c00ea": {
+    "name": "include_stroke",
+    "text": "include stroke"
+  },
+  "0x7f0c00eb": {
+    "name": "info_preset_saved",
+    "text": "preset saved"
+  },
+  "0x7f0c00ec": {
+    "name": "info_saving_done",
+    "text": "saving done !"
+  },
+  "0x7f0c00ed": {
+    "name": "invalid_color",
+    "text": "Invalid color"
+  },
+  "0x7f0c00ee": {
+    "name": "invalid_name",
+    "text": "Invalid name"
+  },
+  "0x7f0c00ef": {
+    "name": "justify",
+    "text": "justify"
+  },
+  "0x7f0c00f0": {
+    "name": "keep_crop",
+    "text": "Don't re-crop :"
+  },
+  "0x7f0c00f1": {
+    "name": "letters",
+    "text": "letters"
+  },
+  "0x7f0c00f2": {
+    "name": "mask_mode",
+    "text": "mask mode"
+  },
+  "0x7f0c00f3": {
+    "name": "merge_layers",
+    "text": "Are you sure you want to merge the selected objects ?"
+  },
+  "0x7f0c00f4": {
+    "name": "merge_one_object",
+    "text": "Please select more than one object"
+  },
+  "0x7f0c00f5": {
+    "name": "mopub_unit_id",
+    "text": "2f279df93a2f46799ed34f1baca59fbe"
+  },
+  "0x7f0c00f6": {
+    "name": "my_styles",
+    "text": "My styles"
+  },
+  "0x7f0c00f7": {
+    "name": "name_asc",
+    "text": "Name ascending"
+  },
+  "0x7f0c00f8": {
+    "name": "name_desc",
+    "text": "Name descending"
+  },
+  "0x7f0c00f9": {
+    "name": "navigation_drawer_close",
+    "text": "Close navigation drawer"
+  },
+  "0x7f0c00fa": {
+    "name": "navigation_drawer_open",
+    "text": "Open navigation drawer"
+  },
+  "0x7f0c00fb": {
+    "name": "new_text",
+    "text": "new text"
+  },
+  "0x7f0c00fc": {
+    "name": "no_autosave",
+    "text": "No autosaves were found !"
+  },
+  "0x7f0c00fd": {
+    "name": "no_email_app",
+    "text": "You don't have an email app"
+  },
+  "0x7f0c00fe": {
+    "name": "no_selection",
+    "text": "You haven't selected anything !"
+  },
+  "0x7f0c00ff": {
+    "name": "ok_caps",
+    "text": "OK"
+  },
+  "0x7f0c0100": {
+    "name": "open_add",
+    "text": "open and add"
+  },
+  "0x7f0c0101": {
+    "name": "open_autosave",
+    "text": "recover autosave"
+  },
+  "0x7f0c0102": {
+    "name": "open_dot_plp",
+    "text": "open .plp"
+  },
+  "0x7f0c0103": {
+    "name": "open_only",
+    "text": "open only"
+  },
+  "0x7f0c0104": {
+    "name": "open_plp",
+    "text": "open .plp file"
+  },
+  "0x7f0c0105": {
+    "name": "open_plp_file",
+    "text": "Open PixelLab project"
+  },
+  "0x7f0c0106": {
+    "name": "operation_confirmation",
+    "text": "Confirmation"
+  },
+  "0x7f0c0107": {
+    "name": "option_affect_shadow",
+    "text": "affect shadow"
+  },
+  "0x7f0c0108": {
+    "name": "option_angle",
+    "text": "Angle"
+  },
+  "0x7f0c0109": {
+    "name": "option_label_alpha",
+    "text": "alpha"
+  },
+  "0x7f0c010a": {
+    "name": "option_label_ambient_light",
+    "text": "Ambient light"
+  },
+  "0x7f0c010b": {
+    "name": "option_label_bending",
+    "text": "Bending"
+  },
+  "0x7f0c010c": {
+    "name": "option_label_bevel",
+    "text": "Bevel"
+  },
+  "0x7f0c010d": {
+    "name": "option_label_blur_radius",
+    "text": "blur radius"
+  },
+  "0x7f0c010e": {
+    "name": "option_label_bold",
+    "text": "Bold"
+  },
+  "0x7f0c010f": {
+    "name": "option_label_enhance",
+    "text": "enhance"
+  },
+  "0x7f0c0110": {
+    "name": "option_label_height",
+    "text": "height"
+  },
+  "0x7f0c0111": {
+    "name": "option_label_intensity",
+    "text": "Intensity"
+  },
+  "0x7f0c0112": {
+    "name": "option_label_italic",
+    "text": "Italic"
+  },
+  "0x7f0c0113": {
+    "name": "option_label_letter_spacing",
+    "text": "Letter spacing"
+  },
+  "0x7f0c0114": {
+    "name": "option_label_light_direction",
+    "text": "Light angle"
+  },
+  "0x7f0c0115": {
+    "name": "option_label_maintain_ratio",
+    "text": "maintain ratio"
+  },
+  "0x7f0c0116": {
+    "name": "option_label_move_by",
+    "text": "move by"
+  },
+  "0x7f0c0117": {
+    "name": "option_label_offset_vertical",
+    "text": "vertical offset"
+  },
+  "0x7f0c0118": {
+    "name": "option_label_offset_x",
+    "text": "offset x"
+  },
+  "0x7f0c0119": {
+    "name": "option_label_offset_y",
+    "text": "offset y"
+  },
+  "0x7f0c011a": {
+    "name": "option_label_padding_bottom",
+    "text": "bottom padding"
+  },
+  "0x7f0c011b": {
+    "name": "option_label_padding_left",
+    "text": "left padding"
+  },
+  "0x7f0c011c": {
+    "name": "option_label_padding_right",
+    "text": "right padding"
+  },
+  "0x7f0c011d": {
+    "name": "option_label_padding_top",
+    "text": "top padding"
+  },
+  "0x7f0c011e": {
+    "name": "option_label_pen_size",
+    "text": "pen size"
+  },
+  "0x7f0c011f": {
+    "name": "option_label_radius",
+    "text": "radius"
+  },
+  "0x7f0c0120": {
+    "name": "option_label_repeat",
+    "text": "repeat"
+  },
+  "0x7f0c0121": {
+    "name": "option_label_smooth_edge",
+    "text": "smooth edges"
+  },
+  "0x7f0c0122": {
+    "name": "option_label_specular_hardness",
+    "text": "Specular Hardness"
+  },
+  "0x7f0c0123": {
+    "name": "option_label_strike_thru",
+    "text": "Strike through"
+  },
+  "0x7f0c0124": {
+    "name": "option_label_stroke_width",
+    "text": "stroke width"
+  },
+  "0x7f0c0125": {
+    "name": "option_label_tolerance",
+    "text": "tolerance"
+  },
+  "0x7f0c0126": {
+    "name": "option_label_underline",
+    "text": "Underline"
+  },
+  "0x7f0c0127": {
+    "name": "option_label_width",
+    "text": "width"
+  },
+  "0x7f0c0128": {
+    "name": "option_label_x_axis",
+    "text": "x axis"
+  },
+  "0x7f0c0129": {
+    "name": "option_label_y_axis",
+    "text": "y axis"
+  },
+  "0x7f0c012a": {
+    "name": "option_title_appearance",
+    "text": "Appearance"
+  },
+  "0x7f0c012b": {
+    "name": "out",
+    "text": "out"
+  },
+  "0x7f0c012c": {
+    "name": "outer_glow",
+    "text": "Outer glow"
+  },
+  "0x7f0c012d": {
+    "name": "padding",
+    "text": "padding"
+  },
+  "0x7f0c012e": {
+    "name": "pending_saving",
+    "text": "saving …"
+  },
+  "0x7f0c012f": {
+    "name": "permission_denied",
+    "text": "Error. Permission denied !"
+  },
+  "0x7f0c0130": {
+    "name": "please_pick_a_color",
+    "text": "Please pick a color …"
+  },
+  "0x7f0c0131": {
+    "name": "preset",
+    "text": "Preset"
+  },
+  "0x7f0c0132": {
+    "name": "preset_create_message",
+    "text": "Please choose a unique name for the preset !"
+  },
+  "0x7f0c0133": {
+    "name": "preset_create_title",
+    "text": "Creating preset :"
+  },
+  "0x7f0c0134": {
+    "name": "preset_delete_confirm",
+    "text": "Are you sure you want to delete this preset ?"
+  },
+  "0x7f0c0135": {
+    "name": "preset_delete_unique",
+    "text": "This preset has some unique resources, and attempting to use them after its deletion won't work !"
+  },
+  "0x7f0c0136": {
+    "name": "preset_name_hint",
+    "text": "Preset name…"
+  },
+  "0x7f0c0137": {
+    "name": "project_exists",
+    "text": "Project with the same name exists. Do you want to overwrite it ?"
+  },
+  "0x7f0c0138": {
+    "name": "project_name",
+    "text": "Project name…"
+  },
+  "0x7f0c0139": {
+    "name": "purchase_sku",
+    "text": "premium"
+  },
+  "0x7f0c013a": {
+    "name": "quality",
+    "text": "quality"
+  },
+  "0x7f0c013b": {
+    "name": "question_delete_font",
+    "text": "Do you want to delete this font from storage ?"
+  },
+  "0x7f0c013c": {
+    "name": "question_use_text",
+    "text": "Would you like to use the selected text ?"
+  },
+  "0x7f0c013d": {
+    "name": "quotes_quotes_label",
+    "text": "Quotes :"
+  },
+  "0x7f0c013e": {
+    "name": "recent",
+    "text": "recent"
+  },
+  "0x7f0c013f": {
+    "name": "recover_autosave_prompt",
+    "text": "An autosave of your last session is available. Do you want to recover it ?"
+  },
+  "0x7f0c0140": {
+    "name": "rendering_problem_dims",
+    "text": "There was a problem while rendering. Reduce the dimensions and retry !"
+  },
+  "0x7f0c0141": {
+    "name": "reset_image",
+    "text": "Are you sure you want to reset the image ?"
+  },
+  "0x7f0c0142": {
+    "name": "restore_fonts",
+    "text": "RESTORE HIDDEN FONTS"
+  },
+  "0x7f0c0143": {
+    "name": "restore_hidden_fonts",
+    "text": "RESTORE HIDDEN FONTS"
+  },
+  "0x7f0c0144": {
+    "name": "rotation_3d",
+    "text": "3d rotation"
+  },
+  "0x7f0c0145": {
+    "name": "s1",
+    "text": "Save image"
+  },
+  "0x7f0c0146": {
+    "name": "s2",
+    "text": "Allow Ad to store image in Picture gallery?"
+  },
+  "0x7f0c0147": {
+    "name": "s3",
+    "text": "Accept"
+  },
+  "0x7f0c0148": {
+    "name": "s4",
+    "text": "Decline"
+  },
+  "0x7f0c0149": {
+    "name": "s5",
+    "text": "Create calendar event"
+  },
+  "0x7f0c014a": {
+    "name": "s6",
+    "text": "Allow Ad to create a calendar event?"
+  },
+  "0x7f0c014b": {
+    "name": "s7",
+    "text": "Test Ad"
+  },
+  "0x7f0c014c": {
+    "name": "sample_arabic",
+    "text": "خط عربي"
+  },
+  "0x7f0c014d": {
+    "name": "sample_tamil",
+    "text": "தமிழ்"
+  },
+  "0x7f0c014e": {
+    "name": "sample_urdu",
+    "text": "اردو فونٹ"
+  },
+  "0x7f0c014f": {
+    "name": "save_as_project",
+    "text": "save as project"
+  },
+  "0x7f0c0150": {
+    "name": "save_changes",
+    "text": "save changes"
+  },
+  "0x7f0c0151": {
+    "name": "save_image",
+    "text": "save as image"
+  },
+  "0x7f0c0152": {
+    "name": "save_text_style",
+    "text": "Save the current text as a new style ?"
+  },
+  "0x7f0c0153": {
+    "name": "saved_as",
+    "text": "Saved as :"
+  },
+  "0x7f0c0154": {
+    "name": "saving_failed",
+    "text": "Saving failed"
+  },
+  "0x7f0c0155": {
+    "name": "search_hint",
+    "text": "search…"
+  },
+  "0x7f0c0156": {
+    "name": "search_menu_title",
+    "text": "Search"
+  },
+  "0x7f0c0157": {
+    "name": "select",
+    "text": "Select"
+  },
+  "0x7f0c0158": {
+    "name": "selection",
+    "text": "Selection"
+  },
+  "0x7f0c0159": {
+    "name": "shadow",
+    "text": "shadow"
+  },
+  "0x7f0c015a": {
+    "name": "share_alternative",
+    "text": "You don't seem to have the app installed! You can save the image to the gallery and share it from there later."
+  },
+  "0x7f0c015b": {
+    "name": "share_export_title",
+    "text": "Export image"
+  },
+  "0x7f0c015c": {
+    "name": "share_format_label",
+    "text": "format :"
+  },
+  "0x7f0c015d": {
+    "name": "share_format_title",
+    "text": "Image format"
+  },
+  "0x7f0c015e": {
+    "name": "share_interstitial_id",
+    "text": "ca-app-pub-4585203665014179/2400877808"
+  },
+  "0x7f0c015f": {
+    "name": "share_quality_label",
+    "text": "quality preset :"
+  },
+  "0x7f0c0160": {
+    "name": "share_quality_title",
+    "text": "Quality"
+  },
+  "0x7f0c0161": {
+    "name": "share_quick",
+    "text": "Quick share"
+  },
+  "0x7f0c0162": {
+    "name": "share_save_to_gallery",
+    "text": "save to gallery"
+  },
+  "0x7f0c0163": {
+    "name": "share_share",
+    "text": "share"
+  },
+  "0x7f0c0164": {
+    "name": "simulate_lighting",
+    "text": "Simulate lighting"
+  },
+  "0x7f0c0165": {
+    "name": "smoothness",
+    "text": "smoothness"
+  },
+  "0x7f0c0166": {
+    "name": "status_bar_notification_info_overflow",
+    "text": "999+"
+  },
+  "0x7f0c0167": {
+    "name": "sticker_shapes",
+    "text": "shapes"
+  },
+  "0x7f0c0168": {
+    "name": "stickers",
+    "text": "stickers+"
+  },
+  "0x7f0c0169": {
+    "name": "stroke_fill_color",
+    "text": "stroke color"
+  },
+  "0x7f0c016a": {
+    "name": "tedpermission_close",
+    "text": "Close"
+  },
+  "0x7f0c016b": {
+    "name": "tedpermission_confirm",
+    "text": "Confirm"
+  },
+  "0x7f0c016c": {
+    "name": "tedpermission_setting",
+    "text": "Setting"
+  },
+  "0x7f0c016d": {
+    "name": "text_styles",
+    "text": "styles"
+  },
+  "0x7f0c016e": {
+    "name": "texture_no_texture",
+    "text": "No texture selected"
+  },
+  "0x7f0c016f": {
+    "name": "texture_selected",
+    "text": "1 texture selected"
+  },
+  "0x7f0c0170": {
+    "name": "title_activity_cropper_select",
+    "text": "Crop..."
+  },
+  "0x7f0c0171": {
+    "name": "title_activity_font_select",
+    "text": "Select..."
+  },
+  "0x7f0c0172": {
+    "name": "title_activity_gradient_maker",
+    "text": "GradientMaker"
+  },
+  "0x7f0c0173": {
+    "name": "title_activity_quotes_browser",
+    "text": "quotes_browser"
+  },
+  "0x7f0c0174": {
+    "name": "title_activity_text_editor",
+    "text": "Edit..."
+  },
+  "0x7f0c0175": {
+    "name": "title_section1",
+    "text": "Fonts"
+  },
+  "0x7f0c0176": {
+    "name": "title_section2",
+    "text": "Favorites"
+  },
+  "0x7f0c0177": {
+    "name": "title_section3",
+    "text": "My fonts"
+  },
+  "0x7f0c0178": {
+    "name": "toggle_enable",
+    "text": "Enabled :"
+  },
+  "0x7f0c0179": {
+    "name": "type",
+    "text": "type"
+  },
+  "0x7f0c017a": {
+    "name": "type_emojis",
+    "text": "emojis"
+  },
+  "0x7f0c017b": {
+    "name": "type_oblique",
+    "text": "oblique"
+  },
+  "0x7f0c017c": {
+    "name": "type_parallel",
+    "text": "parallel"
+  },
+  "0x7f0c017d": {
+    "name": "type_perspective",
+    "text": "perspective"
+  },
+  "0x7f0c017e": {
+    "name": "type_shapes",
+    "text": "shapes"
+  },
+  "0x7f0c017f": {
+    "name": "ver_guides",
+    "text": "number of vertical guides :"
+  },
+  "0x7f0c0180": {
+    "name": "vertical",
+    "text": "vertical"
+  },
+  "0x7f0c0181": {
+    "name": "view_type",
+    "text": "view type"
+  },
+  "0x7f0c0182": {
+    "name": "warning_no_user_fonts_text",
+    "text": "No deletable fonts found. To add your custom fonts place them in one of the following directories :"
+  },
+  "0x7f0c0183": {
+    "name": "width_label",
+    "text": "width :"
+  },
+  "0x7f0c0184": {
+    "name": "words",
+    "text": "words"
+  },
+  "0x7f0c0185": {
+    "name": "x_off",
+    "text": "x offset"
+  },
+  "0x7f0c0186": {
+    "name": "x_rot",
+    "text": "x rotation"
+  },
+  "0x7f0c0187": {
+    "name": "y_offset",
+    "text": "y offset"
+  },
+  "0x7f0c0188": {
+    "name": "y_rot",
+    "text": "y rotation"
+  },
+  "0x7f0c0189": {
+    "name": "youtube_tutorials",
+    "text": "http://apkhu.blogspot.com/2018/09/pixellab-plus_22.html?m=1"
+  },
+  "0x7f0c018a": {
+    "name": "z_rot",
+    "text": "z rotation"
+  }
+}

@@ -1,6 +1,6 @@
 # PixelLab Plus 定制项目
 
-本仓库保存 PixelLab Plus 的离线界面本地化与定制改动，包括 Smali 基线、辅助源码、构建脚本和 17 种语言目录。它不包含原始 APK，也不是可直接安装的 APK 发布页。
+本仓库保存 PixelLab Plus 的离线界面本地化与定制改动，包括 Smali 基线、辅助源码、构建脚本和 17 种语言目录。当前构建会将 Android applicationId 设置为 `com.PixelLab2026.app`，不包含原始 APK，也不是可直接安装的 APK 发布页。
 
 ## 目录
 
@@ -20,7 +20,7 @@
 
 ## 本地构建说明
 
-构建依赖 Android SDK Build Tools 37.0.0、Smali 工具、签名密钥，以及 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk` 作为基础 APK。基础 APK 不包含在仓库中。运行 `scripts/package_plus_fixed_apk.sh` 会应用主题/长按补丁、组装 DEX、只更新基础 APK 二进制 `AndroidManifest.xml` 中的最低/目标 SDK 数值（不重编旧资源表）、打包 17 种离线语言目录并验证 SDK 元数据、签名和包内资源。新 APK 输出至 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk`。如需指定其他基础 APK，可设置 `PIXELLAB_BASE_APK`。`generate_locale_catalogs.py` 会从 Argos Translate 软件包索引下载所需语言模型；模型文件不随仓库提交。
+构建依赖 Android SDK Build Tools 37.0.0、Smali 工具、签名密钥，以及 `/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk` 作为基础 APK。基础 APK 不包含在仓库中。运行 `scripts/package_plus_fixed_apk.sh` 会应用主题/长按补丁、组装 DEX、仅重写基础 APK 二进制 `AndroidManifest.xml`（设置 `com.PixelLab2026.app`、同步 Crashlytics Provider 权限并设置最低/目标 SDK，不重编旧资源表）、打包 17 种离线语言目录并验证包名、SDK 元数据、签名和包内资源。新 APK 输出至 `/workspace/PixelLabPlus_1.9.5_PixelLab2026.apk`。如需指定其他基础 APK，可设置 `PIXELLAB_BASE_APK`。`generate_locale_catalogs.py` 会从 Argos Translate 软件包索引下载所需语言模型；模型文件不随仓库提交。
 
 长按画布文字时仅在手指未明显移动且长按目标仍为当前选中文字的情况下弹出删除/取消操作；删除继续调用原有对象历史记录流程，因此可通过应用撤销。主题覆盖文字、提示文字、按钮/复选组件、进度控件、图标和主要容器，并保留画布文字及大尺寸图片内容本身的颜色。
 

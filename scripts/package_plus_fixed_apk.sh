@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT=/workspace/pixellabplus_custom
-BASE=${PIXELLAB_BASE_APK:-/workspace/PixelLabPlus_1.9.5_plus_enhanced_language_group_fixed.apk}
+BASE=${PIXELLAB_BASE_APK:-/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk}
+APP_ID=com.PixelLab2026.app
 DEX=$ROOT/build/final_fixed/classes.dex
 LOCALES=$ROOT/locale_assets/pixellab_locales
 STAGE=$ROOT/build/final_fixed/package
 UNSIGNED=$STAGE/PixelLabPlus_1.9.5_plus_fixed_unsigned.apk
 ALIGNED=$STAGE/PixelLabPlus_1.9.5_plus_fixed_aligned.apk
-OUTPUT=/workspace/PixelLabPlus_1.9.5_plus_enhanced_global_theme_longpress_fixed.apk
+OUTPUT=/workspace/PixelLabPlus_1.9.5_PixelLab2026.apk
 BUILD_TOOLS=/home/ubuntu/Android/Sdk/build-tools/37.0.0
 KEYSTORE=/home/ubuntu/.android/debug.keystore
 SDK_CONFIG=$ROOT/decoded/apktool.yml
@@ -29,13 +30,13 @@ mkdir -p "$(dirname "$DEX")" "$STAGE/overlay/assets/pixellab_locales" "$STAGE/ma
 smali assemble -a 23 "$ROOT/decoded/smali" -o "$DEX"
 [ -s "$DEX" ] || { echo "Rebuilt DEX is empty: $DEX" >&2; exit 1; }
 
-# Preserve the legacy resource table byte-for-byte. Only patch SDK integers in
-# AndroidManifest.xml, then replace the DEX and locale catalogs as usual.
+# Preserve the legacy resource table byte-for-byte. Patch applicationId,
+# Crashlytics provider authority, and SDK integers in the binary manifest.
 cp "$BASE" "$UNSIGNED"
 zip -q -d "$UNSIGNED" 'classes*.dex' 'assets/pixellab_locales/*.json' 'META-INF/*.RSA' 'META-INF/*.SF' \
   'META-INF/*.DSA' 'META-INF/*.EC' 'META-INF/*.RS' 'META-INF/MANIFEST.MF' \
   >/dev/null 2>&1 || true
-python3 "$ROOT/scripts/patch_android_sdk_manifest.py" "$BASE" "$STAGE/manifest/AndroidManifest.xml" "$MIN_SDK" "$TARGET_SDK"
+python3 "$ROOT/scripts/patch_android_sdk_manifest.py" "$BASE" "$STAGE/manifest/AndroidManifest.xml" "$MIN_SDK" "$TARGET_SDK" "$APP_ID"
 (
   cd "$STAGE/manifest"
   zip -q -0 "$UNSIGNED" AndroidManifest.xml
@@ -58,8 +59,11 @@ rm -f "$OUTPUT" "$OUTPUT.idsig"
 "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$OUTPUT" > "$STAGE/signature_verify.txt"
 unzip -tq "$OUTPUT"
 BADGING=$("$BUILD_TOOLS/aapt" dump badging "$OUTPUT")
+grep -F "package: name='$APP_ID'" <<<"$BADGING" >/dev/null || { echo "APK package name mismatch" >&2; exit 1; }
 grep -F "sdkVersion:'$MIN_SDK'" <<<"$BADGING" >/dev/null || { echo "APK minimum SDK metadata mismatch" >&2; exit 1; }
 grep -F "targetSdkVersion:'$TARGET_SDK'" <<<"$BADGING" >/dev/null || { echo "APK target SDK metadata mismatch" >&2; exit 1; }
+MANIFEST_TREE=$("$BUILD_TOOLS/aapt" dump xmltree "$OUTPUT" AndroidManifest.xml)
+grep -F "$APP_ID.crashlyticsinitprovider" <<<"$MANIFEST_TREE" >/dev/null || { echo "Crashlytics provider authority mismatch" >&2; exit 1; }
 python3 - "$OUTPUT" "$DEX" "$LOCALES" <<'PY'
 import hashlib, json, pathlib, sys, zipfile
 apk, dex, locale_dir = sys.argv[1:]
@@ -89,7 +93,7 @@ with zipfile.ZipFile(apk) as archive:
 for source, translated in {'styles': '样式', 'edit': '编辑', 'delete': '删除', 'copy': '复制', 'to front': '到前面', 'to back': '转到后面', 'undo': '撤销', 'redo': '重做', 'layers': '图层', 'tools': '工具', 'background': '背景', 'text': '文本', 'draw': '绘图', 'sticker': '贴纸'}.items():
     assert zh['texts'].get(source) == translated, (source, zh['texts'].get(source))
 print('Verified classes.dex SHA-256:', hashlib.sha256(actual).hexdigest())
-print('Verified APK SDK metadata, signature, ZIP integrity and 17 locale catalogs.')
+print('Verified APK package/SDK metadata, signature, ZIP integrity and 17 locale catalogs.')
 PY
 printf 'Final APK: %s\n' "$OUTPUT"
 ls -lh "$OUTPUT"

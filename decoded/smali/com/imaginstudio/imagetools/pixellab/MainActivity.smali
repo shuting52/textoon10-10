@@ -6525,10 +6525,18 @@
     const/4 v1, 0x1
 .end method
 .method public getResources()Landroid/content/res/Resources;
-    .locals 1
+    .locals 2
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->getResources()Landroid/content/res/Resources;
     move-result-object v0
+    :locale_resources_start
     invoke-static {p0, v0}, Lcom/imaginstudio/imagetools/pixellab/OfflineLanguageManager;->wrap(Landroid/content/Context;Landroid/content/res/Resources;)Landroid/content/res/Resources;
+    move-result-object v0
+    :locale_resources_end
+    return-object v0
+    .catch Ljava/lang/Throwable; {:locale_resources_start .. :locale_resources_end} :locale_resources_fallback
+    :locale_resources_fallback
+    move-exception v1
+    invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->getResources()Landroid/content/res/Resources;
     move-result-object v0
     return-object v0
 .end method

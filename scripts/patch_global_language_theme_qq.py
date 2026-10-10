@@ -341,6 +341,25 @@ lang_method = r'''.method public static translateText(Landroid/content/Context;L
 .end method'''
 replace_method(LANG, '.method public static translateText(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;', lang_method)
 
+# Keep a locale-wrapper failure from aborting Activity startup or resource inflation.
+resources_method = r'''.method public getResources()Landroid/content/res/Resources;
+    .locals 2
+    invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
+    :locale_resources_start
+    invoke-static {p0, v0}, Lcom/imaginstudio/imagetools/pixellab/OfflineLanguageManager;->wrap(Landroid/content/Context;Landroid/content/res/Resources;)Landroid/content/res/Resources;
+    move-result-object v0
+    :locale_resources_end
+    return-object v0
+    .catch Ljava/lang/Throwable; {:locale_resources_start .. :locale_resources_end} :locale_resources_fallback
+    :locale_resources_fallback
+    move-exception v1
+    invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
+    return-object v0
+.end method'''
+replace_method(SMALI / 'MainActivity.smali', '.method public getResources()Landroid/content/res/Resources;', resources_method)
+
 # Supplement labels sometimes written directly by the bottom toolbar instead of using string resources.
 locale_path = ROOT / 'locale_assets/pixellab_locales/zh-CN.json'
 data = json.loads(locale_path.read_text(encoding='utf-8'))

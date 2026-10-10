@@ -14,8 +14,8 @@
 
 ## Android 兼容性
 
-- 最低系统版本为 Android 6.0（API 23），配置位于 `decoded/apktool.yml`。
-- `targetSdkVersion` 暂保留为 API 23，以避免在未迁移旧版外部存储读写逻辑前启用较新的存储与系统行为限制。APK 可面向 Android 6 及以上系统安装，但本项目未在每个新系统版本上进行真机验证；API 23 目标版本也不满足 Google Play 当前新应用/更新的 API 36 目标要求。
+- 最低系统版本恢复为 Android 4.1（API 16），与此前工程配置一致，位置在 `decoded/apktool.yml`。
+- `targetSdkVersion` 暂保留为 API 23，以避免在未迁移旧版外部存储读写逻辑前启用较新的存储与系统行为限制。APK 声明可面向 Android 4.1 及以上系统安装，但本项目未在每个 Android 版本上进行真机验证；API 23 目标版本也不满足 Google Play 当前新应用/更新的 API 36 目标要求。
 - 华为设备需区分系统版本和服务框架：带 Android 应用兼容环境的机型可按 APK 方式测试；该应用含 Google 广告和 Play Billing 组件，在缺少 GMS/Google Play 的设备上相应广告、购买能力可能不可用。HarmonyOS 原生环境/不同版本的 APK 兼容能力未在本项目中验证；完整原生适配需要额外的 HarmonyOS 工程及 HMS 服务实现。
 
 ## 本地构建说明

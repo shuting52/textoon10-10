@@ -21,7 +21,7 @@ LOCALE_COUNT=$(find "$LOCALES" -maxdepth 1 -type f -name '*.json' | wc -l)
 [ "$LOCALE_COUNT" -eq 17 ] || { echo "Expected 17 locale catalogs, found $LOCALE_COUNT" >&2; exit 1; }
 MIN_SDK=$(sed -n "s/^  minSdkVersion: '\([^']*\)'$/\1/p" "$SDK_CONFIG")
 TARGET_SDK=$(sed -n "s/^  targetSdkVersion: '\([^']*\)'$/\1/p" "$SDK_CONFIG")
-[ "$MIN_SDK" = 23 ] || { echo "Expected Android 6/API 23 minimum, found $MIN_SDK" >&2; exit 1; }
+[ "$MIN_SDK" = 16 ] || { echo "Expected restored Android 4.1/API 16 minimum, found $MIN_SDK" >&2; exit 1; }
 [ -n "$TARGET_SDK" ] || { echo "Could not read target SDK from $SDK_CONFIG" >&2; exit 1; }
 
 python3 "$ROOT/scripts/patch_global_language_theme_qq.py"

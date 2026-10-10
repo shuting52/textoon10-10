@@ -712,6 +712,14 @@
     return-void
 .end method
 
+.method public static onThemeLayout(Landroid/app/Activity;)V
+    .registers 1
+    if-eqz p0, :theme_layout_done
+    invoke-static {p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->applyTheme(Landroid/app/Activity;)V
+    :theme_layout_done
+    return-void
+.end method
+
 .method private static watchLocaleTree(Landroid/app/Activity;)V
     .registers 4
     if-eqz p0, :locale_watch_done
@@ -2605,23 +2613,6 @@
 
     if-eqz v0, :cond_ce
 
-    .line 387
-    const v0, 0x1020002
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eq p1, v0, :cond_a0
-
-    invoke-static {p2, p0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->surface(Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$Palette;Landroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    .line 388
-    :cond_a0
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-lt v0, v2, :cond_bb
@@ -2713,57 +2704,6 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 439
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    const/4 v3, 0x1
-
-    if-lt v1, v2, :cond_3a
-
-    iget-boolean v1, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$Palette;->dashed:Z
-
-    if-eqz v1, :cond_3a
-
-    invoke-static {p1, v3}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->dp(Landroid/content/Context;I)I
-
-    move-result v1
-
-    iget p0, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$Palette;->border:I
-
-    const/4 v2, 0x6
-
-    invoke-static {p1, v2}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->dp(Landroid/content/Context;I)I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    const/4 v3, 0x4
-
-    invoke-static {p1, v3}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->dp(Landroid/content/Context;I)I
-
-    move-result p1
-
-    int-to-float p1, p1
-
-    invoke-virtual {v0, v1, p0, v2, p1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(IIFF)V
-
-    goto :goto_43
-
-    .line 440
-    :cond_3a
-    invoke-static {p1, v3}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->dp(Landroid/content/Context;I)I
-
-    move-result p1
-
-    iget p0, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$Palette;->border:I
-
-    invoke-virtual {v0, p1, p0}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
-
-    .line 441
-    :goto_43
     return-object v0
 .end method
 

@@ -299,11 +299,7 @@ watcher_path.write_text(r'''.class final Lcom/imaginstudio/imagetools/pixellab/P
     .registers 3
     iget-object v0, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;->activity:Landroid/app/Activity;
     if-eqz v0, :locale_layout_done
-    const v1, 0x1020002
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-    move-result-object v1
-    if-eqz v1, :locale_layout_done
-    invoke-static {v0, v1}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->localizeTree(Landroid/app/Activity;Landroid/view/View;)V
+    invoke-static {v0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->onThemeLayout(Landroid/app/Activity;)V
     :locale_layout_done
     return-void
 .end method
@@ -361,4 +357,4 @@ for rid, item in source.items():
     if item.get('text', '').strip().lower() in extra:
         data.setdefault('resources', {})[str(int(rid, 16))] = extra[item['text'].strip().lower()]
 locale_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-print('Patched rendered-text fallback, case-insensitive translation, live layout localization, full view theming, direct QQ deep link, and zh-CN toolbar terms.')
+print('Patched rendered-text fallback, case-insensitive translation, live layout theme/localization refresh, border-free scoped background theming, direct QQ deep link, and zh-CN toolbar terms.')

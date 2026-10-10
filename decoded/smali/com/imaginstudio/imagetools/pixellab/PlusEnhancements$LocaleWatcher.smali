@@ -21,11 +21,7 @@
     .registers 3
     iget-object v0, p0, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements$LocaleWatcher;->activity:Landroid/app/Activity;
     if-eqz v0, :locale_layout_done
-    const v1, 0x1020002
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-    move-result-object v1
-    if-eqz v1, :locale_layout_done
-    invoke-static {v0, v1}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->localizeTree(Landroid/app/Activity;Landroid/view/View;)V
+    invoke-static {v0}, Lcom/imaginstudio/imagetools/pixellab/PlusEnhancements;->onThemeLayout(Landroid/app/Activity;)V
     :locale_layout_done
     return-void
 .end method

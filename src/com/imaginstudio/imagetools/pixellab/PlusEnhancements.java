@@ -85,6 +85,12 @@ public final class PlusEnhancements {
         try { applyTheme(activity); } catch (Throwable ignored) { }
     }
 
+    /** Reapply the selected palette after Android adds or replaces editor views. */
+    public static void onThemeLayout(Activity activity) {
+        if (activity == null || activity.isFinishing()) return;
+        try { applyTheme(activity); } catch (Throwable ignored) { }
+    }
+
     public static float visibleLayersX(MainActivity activity) {
         View panel = activity.findViewById(0x7f080125);
         if (panel == null) return 0f;
@@ -405,7 +411,6 @@ public final class PlusEnhancements {
             view.setBackground(surface(p, activity));
         }
         if (view instanceof ViewGroup) {
-            if (view != activity.findViewById(android.R.id.content)) view.setBackground(surface(p, activity));
             if (Build.VERSION.SDK_INT >= 21 && (view instanceof LinearLayout || view instanceof ScrollView)) view.setElevation(dp(activity, index == 2 ? 8 : 3));
             ViewGroup group = (ViewGroup) view;
             for (int i = 0; i < group.getChildCount(); i++) styleTree(activity, group.getChildAt(i), p, index);
@@ -457,8 +462,6 @@ public final class PlusEnhancements {
     private static GradientDrawable surface(Palette p, Context context) {
         GradientDrawable d = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{p.surface, p.surface2});
         d.setCornerRadius(dp(context, p.radius));
-        if (Build.VERSION.SDK_INT >= 21 && p.dashed) d.setStroke(dp(context, 1), p.border, dp(context, 6), dp(context, 4));
-        else d.setStroke(dp(context, 1), p.border);
         return d;
     }
 
